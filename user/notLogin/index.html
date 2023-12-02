@@ -1568,17 +1568,17 @@
                                                                         background: inherit;
                                                                         border-radius: 0px;
                                                                     }
-
+                                                            
                                                                     .css-xpvaq1:disabled,.css-xpvaq1[disabled],.css-xpvaq1[aria-disabled=true],.css-xpvaq1[data-disabled] {
                                                                         opacity: 0.4;
                                                                         cursor: not-allowed;
                                                                         background: var(--chakra-colors-neutral-200);
                                                                     }
-
+                                                            
                                                                     .css-xpvaq1:hover,.css-xpvaq1[data-hover] {
                                                                         border-color: var(--chakra-colors-neutral-500);
                                                                     }
-
+                                                            
                                                                     .css-xpvaq1[aria-readonly=true],.css-xpvaq1[readonly],.css-xpvaq1[data-readonly] {
                                                                         box-shadow: var(--chakra-shadows-none)!important;
                                                                         -webkit-user-select: all;
@@ -1586,25 +1586,219 @@
                                                                         -ms-user-select: all;
                                                                         user-select: all;
                                                                     }
-
+                                                            
                                                                     .css-xpvaq1[aria-invalid=true],.css-xpvaq1[data-invalid] {
                                                                         border-color: #DA2C16;
                                                                         box-shadow: 0 0 0 1px #DA2C16;
                                                                     }
-
+                                                            
                                                                     .css-xpvaq1:focus-visible,.css-xpvaq1[data-focus-visible] {
                                                                         z-index: 1;
                                                                         border-color: #3182ce;
                                                                         box-shadow: 0 0 0 1px #3182ce;
                                                                     }
-
+                                                            
                                                                     .css-xpvaq1:focus,.css-xpvaq1[data-focus] {
                                                                         border-color: var(--chakra-colors-neutral-black);
                                                                         box-shadow: 0px 0px 0px 3px rgba(0, 0, 0, 0.1);
                                                                     }
                                                                 </style>
-                                                                <input type="search" name="q" placeholder="Search for brand, color, etc." autoComplete="off" spellcheck="false" autoCorrect="off" autoCapitalize="off" data-testid="site-search" title="Search..." aria-label="Search..." id="site-search" class="chakra-input css-xpvaq1" value=""/>
+                                                            
+                                                                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.4/nouislider.min.css" />
+                                                                <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.4/nouislider.min.js"></script>
+                                                                <style>
+                                                                    .range-slider {
+                                                                        width: 80%;
+                                                                        margin: 50px auto;
+                                                                    }
+                                                            
+                                                                    .range-values {
+                                                                        display: flex;
+                                                                        justify-content: space-between;
+                                                                        margin-top: 10px;
+                                                                    }
+                                                            
+                                                                    .range-values span {
+                                                                        width: 48%;
+                                                                        text-align: center;
+                                                                    }
+                                                            
+                                                                    /* Optional: Style for better visibility */
+                                                                    label {
+                                                                        font-size: 18px;
+                                                                    }
+                                                                </style>
+                                                            
+                                                                <style>
+                                                                    .dropbtn {
+                                                                      background-color: #04AA6D;
+                                                                      color: white;
+                                                                      padding: 16px;
+                                                                      font-size: 16px;
+                                                                      border: none;
+                                                                      cursor: pointer;
+                                                                    }
+                                                                    
+                                                                    .dropbtn:hover, .dropbtn:focus {
+                                                                      background-color: #3e8e41;
+                                                                    }
+                                                                    
+                                                                    #myInput {
+                                                                      box-sizing: border-box;
+                                                                      background-image: url('searchicon.png');
+                                                                      background-position: 14px 12px;
+                                                                      background-repeat: no-repeat;
+                                                                      font-size: 16px;
+                                                                      padding: 14px 20px 12px 45px;
+                                                                      border: none;
+                                                                      border-bottom: 1px solid #ddd;
+                                                                    }
+                                                                    
+                                                                    #myInput:focus {outline: 3px solid #ddd;}
+                                                                    
+                                                                    .dropdown {
+                                                                      position: relative;
+                                                                      display: inline-block;
+                                                                    }
+                                                                    
+                                                                    .dropdown-content {
+                                                                      display: none;
+                                                                      position: absolute;
+                                                                      background-color: #f6f6f6;
+                                                                      /* min-width: 230px; */
+                                                                      min-width: 100%;
+                                                                      overflow: auto;
+                                                                      border: 1px solid #ddd;
+                                                                      z-index: 1;
+                                                                    }
+                                                                    
+                                                                    .dropdown-content button {
+                                                                      color: black;
+                                                                      padding: 12px 16px;
+                                                                      text-decoration: none;
+                                                                      display: inline-block;
+                                                                      margin-top: 50px;
+                                                                      margin-left: 20px;
+                                                                      margin-right: 20px;
+                                                                    }
+                                                                    
+                                                                    .dropdown a:hover {background-color: #ddd;}
+                                                                    
+                                                                    .show {display: block;}
+
+                                                                    #myDropdown {
+                                                                        margin-top: 2.7em;
+                                                                    }
+                                                                </style>
+                                                            
+                                                                <input onfocus="myFunction()" onkeydown="handleKeyDown(event)" type="search" name="q" placeholder="Search for brand, color, etc." autoComplete="off" spellcheck="false" autoCorrect="off" autoCapitalize="off" data-testid="site-search" title="Search..." aria-label="Search..." id="site-search" class="chakra-input css-xpvaq1" value=""/>
+                                                                <div id="myDropdown" class="dropdown-content">
+                                                                    <div class="range-slider" style="text-align: center;">
+                                                                        <label for="priceRange">Price Range</label><br><br>
+                                                                        <div id="priceRange"></div>
+                                                                        <div class="range-values">
+                                                                            <span id="value1">$0</span>
+                                                                            <span id="value2">$2,000</span>
+                                                                        </div>
+                                                                        <button onclick="selectButton('Sneakers')"><b><bigger>Sneakers</bigger></b></button>
+                                                                        <button onclick="selectButton('Apparel')"><b><bigger>Apparel</bigger></b></button>
+                                                                        <button onclick="selectButton('Accessories')"><b><bigger>Accessories</bigger></b></button>
+                                                                        <button onclick="selectButton('Collectibles')"><b><bigger>Collectibles</bigger></b></button>
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                                <script>
+                                                                    document.addEventListener('DOMContentLoaded', function () {
+                                                                        var searchInput = document.getElementById("site-search");
+                                                                        var dropdown = document.getElementById("myDropdown");
+                                                            
+                                                                        // Thêm sự kiện mousedown cho cả input và dropdown
+                                                                        document.addEventListener('mousedown', function (event) {
+                                                                            if (event.target === searchInput || event.target.closest("#myDropdown")) {
+                                                                                // Click vào input hoặc dropdown, không tắt dropdown
+                                                                                dropdown.classList.add("show");
+                                                                            } else {
+                                                                                // Click ra ngoài khu vực, tắt dropdown
+                                                                                dropdown.classList.remove("show");
+                                                                            }
+                                                                        });
+                                                                    
+                                                                        // Thêm sự kiện keydown cho input
+                                                                        searchInput.addEventListener('keydown', function (event) {
+                                                                            handleKeyDown(event);
+                                                                        });
+                                                                    });
+                                                            
+                                                                    function selectButton(value) {
+                                                                        var searchInput = document.getElementById("site-search");
+                                                                        var dropdown = document.getElementById("myDropdown");
+                                                            
+                                                                        // Nếu giá trị hiện tại của thanh input là giống với giá trị của button được nhấn,
+                                                                        // thì xóa giá trị của thanh input, ngược lại, cập nhật giá trị của thanh input
+                                                                        if (searchInput.value === value) {
+                                                                            searchInput.value = '';
+                                                                        } else {
+                                                                            searchInput.value = value;
+                                                                        }
+                                                            
+                                                                        // Đóng dropdown
+                                                                        // dropdown.classList.remove("show");
+                                                                    }
+                                                            
+                                                                    function handleKeyDown(event) {
+                                                                        var searchInput = document.getElementById("site-search");
+                                                                        var dropdown = document.getElementById("myDropdown");
+                                                            
+                                                                        // Kiểm tra nếu phím nhấn là Enter và có một lựa chọn được chọn
+                                                                        if (event.key === 'Enter' && searchInput.value) {
+                                                                            // Chuyển hướng đến đường link tương ứng
+                                                                            switch (searchInput.value.toLowerCase()) {
+                                                                                case 'sneakers':
+                                                                                    window.location.href = 'Shopping_List/Sneaker.html';
+                                                                                    break;
+                                                                                case 'apparel':
+                                                                                    window.location.href = 'Shopping_List/Apparel.html';
+                                                                                    break;
+                                                                                case 'accessories':
+                                                                                    window.location.href = 'Shopping_List/Accessories.html';
+                                                                                    break;
+                                                                                case 'collectibles':
+                                                                                    window.location.href = 'Shopping_List/Collectibles.html';
+                                                                                    break;
+                                                                                default:
+                                                                                    window.location.href = 'Shopping_List/Sneaker.html';
+                                                                                    break;
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                </script>
+                                                                <script>
+                                                                    const priceRange = document.getElementById('priceRange');
+                                                                    const value1 = document.getElementById('value1');
+                                                                    const value2 = document.getElementById('value2');
+                                                            
+                                                                    noUiSlider.create(priceRange, {
+                                                                        start: [0, 2000],
+                                                                        connect: true,
+                                                                        range: {
+                                                                            'min': 0,
+                                                                            'max': 2000
+                                                                        },
+                                                                        step: 1
+                                                                    });
+                                                            
+                                                                    priceRange.noUiSlider.on('update', function (values, handle) {
+                                                                        const val = values[handle];
+                                                                        if (handle === 0) {
+                                                                            value1.textContent = `$${val}`;
+                                                                        } else {
+                                                                            value2.textContent = `$${val}`;
+                                                                        }
+                                                                    });
+                                                                </script>
                                                             </div>
+                                                            
+                                                            
                                                         </div>
                                                         <span></span>
                                                     </div>
@@ -3301,11 +3495,13 @@
                                             <li role="listitem" data-component="product-tile" class="css-0">
                                                 <div data-testid="productTile" class="css-10g2fi1">
                                                     <div class="css-unvwxl">
-                                                        <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
-                                                            <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
-                                                                <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
-                                                            </svg>
-                                                        </button>
+                                                        <a href="SignUp_Login.html">
+                                                            <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
+                                                                <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
+                                                                    <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
+                                                                </svg>
+                                                            </button>
+                                                        </a>
                                                     </div>
                                                     <a data-testid="productTile-ProductSwitcherLink" href="Product/In4/Recently/Air-Jordan-1-Retro-Low-Golf-Travis-Scott-Neutral-Olive-Product.html">
                                                         <div class="css-1g4yje1">
@@ -3340,11 +3536,13 @@
                                             <li role="listitem" data-component="product-tile" class="css-0">
                                                 <div data-testid="productTile" class="css-10g2fi1">
                                                     <div class="css-unvwxl">
-                                                        <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
-                                                            <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
-                                                                <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
-                                                            </svg>
-                                                        </button>
+                                                        <a href="SignUp_Login.html">
+                                                            <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
+                                                                <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
+                                                                    <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
+                                                                </svg>
+                                                            </button>
+                                                        </a>
                                                     </div>
                                                     <a data-testid="productTile-ProductSwitcherLink" href="Product/In4/Recently/Nike-SB-Dunk-Low-Born-x-Raised-One-Block-At-A-Time-Product.html">
                                                         <div class="css-1g4yje1">
@@ -3405,11 +3603,13 @@
                                             <li role="listitem" data-component="product-tile" class="css-0">
                                                 <div data-testid="productTile" class="css-10g2fi1">
                                                     <div class="css-unvwxl">
-                                                        <button type="button" class="chakra-button css-obmws6" aria-label="Follow" data-testid="TriggerFavoriteView">
-                                                            <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
-                                                                <path d="M43 18.5C43 13.2 38.7 9 33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 43 19.7 43 18.5Z" fill="currentColor"></path>
-                                                            </svg>
-                                                        </button>
+                                                        <a href="SignUp_Login.html">
+                                                            <button type="button" class="chakra-button css-obmws6" aria-label="Follow" data-testid="TriggerFavoriteView">
+                                                                <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
+                                                                    <path d="M43 18.5C43 13.2 38.7 9 33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 43 19.7 43 18.5Z" fill="currentColor"></path>
+                                                                </svg>
+                                                            </button>
+                                                        </a>
                                                     </div>
                                                     <a data-testid="productTile-ProductSwitcherLink" href="Product/In4/Shoes/Air-Jordan-1-Retro-Low-OG-SP-Travis-Scott-Olive-W-Product.html">
                                                         <div class="css-1g4yje1">
@@ -3444,11 +3644,13 @@
                                             <li role="listitem" data-component="product-tile" class="css-0">
                                                 <div data-testid="productTile" class="css-10g2fi1">
                                                     <div class="css-unvwxl">
-                                                        <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
-                                                            <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
-                                                                <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
-                                                            </svg>
-                                                        </button>
+                                                        <a href="SignUp_Login.html">
+                                                            <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
+                                                                <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
+                                                                    <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
+                                                                </svg>
+                                                            </button>
+                                                        </a>
                                                     </div>
                                                     <a data-testid="productTile-ProductSwitcherLink" href="Product/In4/Shoes/Air-Jordan-1-Retro-High-OG-Satin-Bred-Product.html">
                                                         <div class="css-1g4yje1">
@@ -3483,11 +3685,13 @@
                                             <li role="listitem" data-component="product-tile" class="css-0">
                                                 <div data-testid="productTile" class="css-10g2fi1">
                                                     <div class="css-unvwxl">
-                                                        <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
-                                                            <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
-                                                                <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
-                                                            </svg>
-                                                        </button>
+                                                        <a href="SignUp_Login.html">
+                                                            <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
+                                                                <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
+                                                                    <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
+                                                                </svg>
+                                                            </button>
+                                                        </a>
                                                     </div>
                                                     <a data-testid="productTile-ProductSwitcherLink" href="Product/In4/Shoes/OFF-WHITE-Out-Of-Office-OOO-Low-Tops-White-Black-White-Product.html">
                                                         <div class="css-1g4yje1">
@@ -3522,11 +3726,13 @@
                                             <li role="listitem" data-component="product-tile" class="css-0">
                                                 <div data-testid="productTile" class="css-10g2fi1">
                                                     <div class="css-unvwxl">
-                                                        <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
-                                                            <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
-                                                                <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
-                                                            </svg>
-                                                        </button>
+                                                        <a href="SignUp_Login.html">
+                                                            <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
+                                                                <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
+                                                                    <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
+                                                                </svg>
+                                                            </button>
+                                                        </a>
                                                     </div>
                                                     <a data-testid="productTile-ProductSwitcherLink" href="Product/In4/Shoes/Air-Jordan-3-Retro-SP-J-Balvin-Product.html">
                                                         <div class="css-1g4yje1">
@@ -3560,11 +3766,13 @@
                                             <li role="listitem" data-component="product-tile" class="css-0">
                                                 <div data-testid="productTile" class="css-10g2fi1">
                                                     <div class="css-unvwxl">
-                                                        <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
-                                                            <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
-                                                                <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
-                                                            </svg>
-                                                        </button>
+                                                        <a href="SignUp_Login.html">
+                                                            <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
+                                                                <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
+                                                                    <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
+                                                                </svg>
+                                                            </button>
+                                                        </a>
                                                     </div>
                                                     <a data-testid="productTile-ProductSwitcherLink" href="Product/In4/Shoes/Air-Jordan-1-Retro-Low-OG-SP-Travis-Scott-Black-Phantom-Product.html">
                                                         <div class="css-1g4yje1">
@@ -3600,11 +3808,13 @@
                                             <li role="listitem" data-component="product-tile" class="css-0">
                                                 <div data-testid="productTile" class="css-10g2fi1">
                                                     <div class="css-unvwxl">
-                                                        <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
-                                                            <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
-                                                                <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
-                                                            </svg>
-                                                        </button>
+                                                        <a href="SignUp_Login.html">
+                                                            <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
+                                                                <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
+                                                                    <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
+                                                                </svg>
+                                                            </button>
+                                                        </a>
                                                     </div>
                                                     <a data-testid="productTile-ProductSwitcherLink" href="Product/In4/Shoes/Air-Jordan-1-Retro-Low-OG-SP-Travis-Scott-Reverse-Mocha_V2-Product.html">
                                                         <div class="css-1g4yje1">
@@ -3746,11 +3956,13 @@
                                         <li role="listitem" data-component="product-tile" class="css-0">
                                             <div data-testid="productTile" class="css-10g2fi1">
                                                 <div class="css-unvwxl">
-                                                    <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
-                                                        <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
-                                                            <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
-                                                        </svg>
-                                                    </button>
+                                                    <a href="SignUp_Login.html">
+                                                        <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
+                                                            <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
+                                                                <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
+                                                            </svg>
+                                                        </button>
+                                                    </a>
                                                 </div>
                                                 <a data-testid="productTile-ProductSwitcherLink" href="Product/In4/Apparel/Fear-of-God-Essentials-Hoodie-Black.html">
                                                     <div class="css-1g4yje1">
@@ -3785,11 +3997,13 @@
                                         <li role="listitem" data-component="product-tile" class="css-0">
                                             <div data-testid="productTile" class="css-10g2fi1">
                                                 <div class="css-unvwxl">
-                                                    <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
-                                                        <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
-                                                            <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
-                                                        </svg>
-                                                    </button>
+                                                    <a href="SignUp_Login.html">
+                                                        <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
+                                                            <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
+                                                                <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
+                                                            </svg>
+                                                        </button>
+                                                    </a>
                                                 </div>
                                                 <a data-testid="productTile-ProductSwitcherLink" href="Product/In4/Apparel/Patta-x-Barcelona-FC-Culers-del-Mon-Pre-Match-Jersey-Black-White.html">
                                                     <div class="css-1g4yje1">
@@ -3824,11 +4038,13 @@
                                         <li role="listitem" data-component="product-tile" class="css-0">
                                             <div data-testid="productTile" class="css-10g2fi1">
                                                 <div class="css-unvwxl">
-                                                    <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
-                                                        <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
-                                                            <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
-                                                        </svg>
-                                                    </button>
+                                                    <a href="SignUp_Login.html">
+                                                        <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
+                                                            <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
+                                                                <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
+                                                            </svg>
+                                                        </button>
+                                                    </a>
                                                 </div>
                                                 <a data-testid="productTile-ProductSwitcherLink" href="Product/In4/Apparel/KAWS-x-Uniqlo-Longsleeve-Sweatshirt-Set-Off-White-Black.html">
                                                     <div class="css-1g4yje1">
@@ -3863,11 +4079,13 @@
                                         <li role="listitem" data-component="product-tile" class="css-0">
                                             <div data-testid="productTile" class="css-10g2fi1">
                                                 <div class="css-unvwxl">
-                                                    <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
-                                                        <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
-                                                            <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
-                                                        </svg>
-                                                    </button>
+                                                    <a href="SignUp_Login.html">
+                                                        <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
+                                                            <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
+                                                                <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
+                                                            </svg>
+                                                        </button>
+                                                    </a>
                                                 </div>
                                                 <a data-testid="productTile-ProductSwitcherLink" href="Product/In4/Apparel/Denim-Tears-The-Cotton-Wreath-Sweatshirt-Grey-Sweatshirt-Grey.html">
                                                     <div class="css-1g4yje1">
@@ -3902,11 +4120,13 @@
                                         <li role="listitem" data-component="product-tile" class="css-0">
                                             <div data-testid="productTile" class="css-10g2fi1">
                                                 <div class="css-unvwxl">
-                                                    <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
-                                                        <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
-                                                            <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
-                                                        </svg>
-                                                    </button>
+                                                    <a href="SignUp_Login.html">
+                                                        <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
+                                                            <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
+                                                                <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
+                                                            </svg>
+                                                        </button>
+                                                    </a>
                                                 </div>
                                                 <a data-testid="productTile-ProductSwitcherLink" href="Product/In4/Apparel/Burberry-Letter-Graphic-Cotton-Blend-Zip-Hoodie-Pale-Grey-Melange.html">
                                                     <div class="css-1g4yje1">
@@ -3941,11 +4161,13 @@
                                         <li role="listitem" data-component="product-tile" class="css-0">
                                             <div data-testid="productTile" class="css-10g2fi1">
                                                 <div class="css-unvwxl">
-                                                    <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
-                                                        <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
-                                                            <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
-                                                        </svg>
-                                                    </button>
+                                                    <a href="SignUp_Login.html">
+                                                        <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
+                                                            <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
+                                                                <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
+                                                            </svg>
+                                                        </button>
+                                                    </a>
                                                 </div>
                                                 <a data-testid="productTile-ProductSwitcherLink" href="Product/In4/Apparel/Hellstar-Records-T-shirt-Off-White.html">
                                                     <div class="css-1g4yje1">
@@ -4015,11 +4237,13 @@
                                         <li role="listitem" data-component="product-tile" class="css-0">
                                             <div data-testid="productTile" class="css-10g2fi1">
                                                 <div class="css-unvwxl">
-                                                    <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
-                                                        <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
-                                                            <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
-                                                        </svg>
-                                                    </button>
+                                                    <a href="SignUp_Login.html">
+                                                        <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
+                                                            <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
+                                                                <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
+                                                            </svg>
+                                                        </button>
+                                                    </a>
                                                 </div>
                                                 <a data-testid="productTile-ProductSwitcherLink" href="Product/In4/Accessories/Casio-Analog-MTP1302D-2A2V-Tiffany-Blue.html">
                                                     <div class="css-1g4yje1">
@@ -4054,11 +4278,13 @@
                                         <li role="listitem" data-component="product-tile" class="css-0">
                                             <div data-testid="productTile" class="css-10g2fi1">
                                                 <div class="css-unvwxl">
-                                                    <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
-                                                        <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
-                                                            <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
-                                                        </svg>
-                                                    </button>
+                                                    <a href="SignUp_Login.html">
+                                                        <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
+                                                            <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
+                                                                <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
+                                                            </svg>
+                                                        </button>
+                                                    </a>
                                                 </div>
                                                 <a data-testid="productTile-ProductSwitcherLink" href="Product/In4/Accessories/Blancpain-x-Swatch-Scuba-Fifty-Fathoms-Atlantic-Ocean-SO35A100-Blue-Product.html">
                                                     <div class="css-1g4yje1">
@@ -4093,11 +4319,13 @@
                                         <li role="listitem" data-component="product-tile" class="css-0">
                                             <div data-testid="productTile" class="css-10g2fi1">
                                                 <div class="css-unvwxl">
-                                                    <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
-                                                        <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
-                                                            <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
-                                                        </svg>
-                                                    </button>
+                                                    <a href="SignUp_Login.html">
+                                                        <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
+                                                            <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
+                                                                <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
+                                                            </svg>
+                                                        </button>
+                                                    </a>
                                                 </div>
                                                 <a data-testid="productTile-ProductSwitcherLink" href="Product/In4/Accessories/Louis-Vuitton-Mini-Bumbag-Monogram.html">
                                                     <div class="css-1g4yje1">
@@ -4132,11 +4360,13 @@
                                         <li role="listitem" data-component="product-tile" class="css-0">
                                             <div data-testid="productTile" class="css-10g2fi1">
                                                 <div class="css-unvwxl">
-                                                    <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
-                                                        <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
-                                                            <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
-                                                        </svg>
-                                                    </button>
+                                                    <a href="SignUp_Login.html">
+                                                        <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
+                                                            <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
+                                                                <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
+                                                            </svg>
+                                                        </button>
+                                                    </a>
                                                 </div>
                                                 <a data-testid="productTile-ProductSwitcherLink" href="Product/In4/Accessories/Burberry-Ronan-Bi-Fold-Wallet-8-Card-Slots-Oxblood.html">
                                                     <div class="css-1g4yje1">
@@ -4171,11 +4401,13 @@
                                         <li role="listitem" data-component="product-tile" class="css-0">
                                             <div data-testid="productTile" class="css-10g2fi1">
                                                 <div class="css-unvwxl">
-                                                    <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
-                                                        <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
-                                                            <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
-                                                        </svg>
-                                                    </button>
+                                                    <a href="SignUp_Login.html">
+                                                        <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
+                                                            <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
+                                                                <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
+                                                            </svg>
+                                                        </button>
+                                                    </a>
                                                 </div>
                                                 <a data-testid="productTile-ProductSwitcherLink" href="Product/In4/Accessories/Swatch-x-Omega-Bioceramic-Moonswatch-Mission-to-Neptune-Gold-SO33N100-Blue.html">
                                                     <div class="css-1g4yje1">
@@ -4210,11 +4442,13 @@
                                         <li role="listitem" data-component="product-tile" class="css-0">
                                             <div data-testid="productTile" class="css-10g2fi1">
                                                 <div class="css-unvwxl">
-                                                    <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
-                                                        <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
-                                                            <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
-                                                        </svg>
-                                                    </button>
+                                                    <a href="SignUp_Login.html">
+                                                        <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
+                                                            <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
+                                                                <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
+                                                            </svg>
+                                                        </button>
+                                                    </a>
                                                 </div>
                                                 <a data-testid="productTile-ProductSwitcherLink" href="Product/In4/Accessories/Prada-Re-Edition-Shoulder-Bag-Nylon-Black-studio-1.html">
                                                     <div class="css-1g4yje1">
@@ -4304,11 +4538,13 @@
                                             <li role="listitem" data-component="product-tile" class="css-0">
                                                 <div data-testid="productTile" class="css-10g2fi1">
                                                     <div class="css-unvwxl">
-                                                        <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
-                                                            <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
-                                                                <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
-                                                            </svg>
-                                                        </button>
+                                                        <a href="SignUp_Login.html">
+                                                            <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
+                                                                <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
+                                                                    <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
+                                                                </svg>
+                                                            </button>
+                                                        </a>
                                                     </div>
                                                     <a data-testid="productTile-ProductSwitcherLink" href="Product/In4/Collectibles/Mattel-UNO-Show-em-No-Mercy-Card-Game.html">
                                                         <div class="css-1g4yje1">
@@ -4343,11 +4579,13 @@
                                             <li role="listitem" data-component="product-tile" class="css-0">
                                                 <div data-testid="productTile" class="css-10g2fi1">
                                                     <div class="css-unvwxl">
-                                                        <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
-                                                            <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
-                                                                <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
-                                                            </svg>
-                                                        </button>
+                                                        <a href="SignUp_Login.html">
+                                                            <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
+                                                                <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
+                                                                    <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
+                                                                </svg>
+                                                            </button>
+                                                        </a>
                                                     </div>
                                                     <a data-testid="productTile-ProductSwitcherLink" href="Product/In4/Collectibles/Mattel-Barbie-2023-Dia-De-Muertos-Barbie-x-Pink-Magnolia-Doll.html">
                                                         <div class="css-1g4yje1">
@@ -4382,11 +4620,13 @@
                                             <li role="listitem" data-component="product-tile" class="css-0">
                                                 <div data-testid="productTile" class="css-10g2fi1">
                                                     <div class="css-unvwxl">
-                                                        <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
-                                                            <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
-                                                                <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
-                                                            </svg>
-                                                        </button>
+                                                        <a href="SignUp_Login.html">
+                                                            <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
+                                                                <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
+                                                                    <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
+                                                                </svg>
+                                                            </button>
+                                                        </a>
                                                     </div>
                                                     <a data-testid="productTile-ProductSwitcherLink" href="Product/In4/Collectibles/Pokemon-Center-x-Van-Gogh-Museum-Pikachu-Plush.html">
                                                         <div class="css-1g4yje1">
@@ -4421,11 +4661,13 @@
                                             <li role="listitem" data-component="product-tile" class="css-0">
                                                 <div data-testid="productTile" class="css-10g2fi1">
                                                     <div class="css-unvwxl">
-                                                        <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
-                                                            <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
-                                                                <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
-                                                            </svg>
-                                                        </button>
+                                                        <a href="SignUp_Login.html">
+                                                            <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
+                                                                <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
+                                                                    <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
+                                                                </svg>
+                                                            </button>
+                                                        </a>
                                                     </div>
                                                     <a data-testid="productTile-ProductSwitcherLink" href="Product/In4/Collectibles/LEGO-Star-Wars-Venator-Class-Republic-Attack-Cruiser-Set-75367.html">
                                                         <div class="css-1g4yje1">
@@ -4460,11 +4702,13 @@
                                             <li role="listitem" data-component="product-tile" class="css-0">
                                                 <div data-testid="productTile" class="css-10g2fi1">
                                                     <div class="css-unvwxl">
-                                                        <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
-                                                            <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
-                                                                <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
-                                                            </svg>
-                                                        </button>
+                                                        <a href="SignUp_Login.html">
+                                                            <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
+                                                                <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
+                                                                    <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
+                                                                </svg>
+                                                            </button>
+                                                        </a>
                                                     </div>
                                                     <a data-testid="productTile-ProductSwitcherLink" href="Product/In4/Collectibles/Phaidon-KAWS-Dan-Nadel-Thomas-Crow-Clare-Lilley-Jason-Schmidt-Book-Signed.html">
                                                         <div class="css-1g4yje1">
@@ -4499,11 +4743,13 @@
                                             <li role="listitem" data-component="product-tile" class="css-0">
                                                 <div data-testid="productTile" class="css-10g2fi1">
                                                     <div class="css-unvwxl">
-                                                        <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
-                                                            <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
-                                                                <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
-                                                            </svg>
-                                                        </button>
+                                                        <a href="SignUp_Login.html">
+                                                            <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
+                                                                <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
+                                                                    <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
+                                                                </svg>
+                                                            </button>
+                                                        </a>
                                                     </div>
                                                     <a data-testid="productTile-ProductSwitcherLink" href="Product/In4/Collectibles/Pokemon-Santa-Cruz-Skateboard-Deck-Blind-Bag.html">
                                                         <div class="css-1g4yje1">
@@ -5005,5 +5251,14 @@
     margin-inline-end: 0px;
     }
 
+    /* .css-1q8j20u-CategoryLinkStyles:hover {
+        background-color: #4FC58C;
+    }
+    .css-1q8j20u-CategoryLinkStyles:active {
+        background-color: #6EA580;
+    }
 
+    .css-1g4yje1:hover {
+        border: 1px solid #1D8751;
+    } */
 </style>

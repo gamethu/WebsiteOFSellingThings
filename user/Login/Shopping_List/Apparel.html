@@ -1568,17 +1568,17 @@
                                                                         background: inherit;
                                                                         border-radius: 0px;
                                                                     }
-
+                                                            
                                                                     .css-xpvaq1:disabled,.css-xpvaq1[disabled],.css-xpvaq1[aria-disabled=true],.css-xpvaq1[data-disabled] {
                                                                         opacity: 0.4;
                                                                         cursor: not-allowed;
                                                                         background: var(--chakra-colors-neutral-200);
                                                                     }
-
+                                                            
                                                                     .css-xpvaq1:hover,.css-xpvaq1[data-hover] {
                                                                         border-color: var(--chakra-colors-neutral-500);
                                                                     }
-
+                                                            
                                                                     .css-xpvaq1[aria-readonly=true],.css-xpvaq1[readonly],.css-xpvaq1[data-readonly] {
                                                                         box-shadow: var(--chakra-shadows-none)!important;
                                                                         -webkit-user-select: all;
@@ -1586,25 +1586,219 @@
                                                                         -ms-user-select: all;
                                                                         user-select: all;
                                                                     }
-
+                                                            
                                                                     .css-xpvaq1[aria-invalid=true],.css-xpvaq1[data-invalid] {
                                                                         border-color: #DA2C16;
                                                                         box-shadow: 0 0 0 1px #DA2C16;
                                                                     }
-
+                                                            
                                                                     .css-xpvaq1:focus-visible,.css-xpvaq1[data-focus-visible] {
                                                                         z-index: 1;
                                                                         border-color: #3182ce;
                                                                         box-shadow: 0 0 0 1px #3182ce;
                                                                     }
-
+                                                            
                                                                     .css-xpvaq1:focus,.css-xpvaq1[data-focus] {
                                                                         border-color: var(--chakra-colors-neutral-black);
                                                                         box-shadow: 0px 0px 0px 3px rgba(0, 0, 0, 0.1);
                                                                     }
                                                                 </style>
-                                                                <input type="search" name="q" placeholder="Search for brand, color, etc." autoComplete="off" spellcheck="false" autoCorrect="off" autoCapitalize="off" data-testid="site-search" title="Search..." aria-label="Search..." id="site-search" class="chakra-input css-xpvaq1" value=""/>
+                                                            
+                                                                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.4/nouislider.min.css" />
+                                                                <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.4/nouislider.min.js"></script>
+                                                                <style>
+                                                                    .range-slider {
+                                                                        width: 80%;
+                                                                        margin: 50px auto;
+                                                                    }
+                                                            
+                                                                    .range-values {
+                                                                        display: flex;
+                                                                        justify-content: space-between;
+                                                                        margin-top: 10px;
+                                                                    }
+                                                            
+                                                                    .range-values span {
+                                                                        width: 48%;
+                                                                        text-align: center;
+                                                                    }
+                                                            
+                                                                    /* Optional: Style for better visibility */
+                                                                    label {
+                                                                        font-size: 18px;
+                                                                    }
+                                                                </style>
+                                                            
+                                                                <style>
+                                                                    .dropbtn {
+                                                                      background-color: #04AA6D;
+                                                                      color: white;
+                                                                      padding: 16px;
+                                                                      font-size: 16px;
+                                                                      border: none;
+                                                                      cursor: pointer;
+                                                                    }
+                                                                    
+                                                                    .dropbtn:hover, .dropbtn:focus {
+                                                                      background-color: #3e8e41;
+                                                                    }
+                                                                    
+                                                                    #myInput {
+                                                                      box-sizing: border-box;
+                                                                      background-image: url('searchicon.png');
+                                                                      background-position: 14px 12px;
+                                                                      background-repeat: no-repeat;
+                                                                      font-size: 16px;
+                                                                      padding: 14px 20px 12px 45px;
+                                                                      border: none;
+                                                                      border-bottom: 1px solid #ddd;
+                                                                    }
+                                                                    
+                                                                    #myInput:focus {outline: 3px solid #ddd;}
+                                                                    
+                                                                    .dropdown {
+                                                                      position: relative;
+                                                                      display: inline-block;
+                                                                    }
+                                                                    
+                                                                    .dropdown-content {
+                                                                      display: none;
+                                                                      position: absolute;
+                                                                      background-color: #f6f6f6;
+                                                                      /* min-width: 230px; */
+                                                                      min-width: 100%;
+                                                                      overflow: auto;
+                                                                      border: 1px solid #ddd;
+                                                                      z-index: 1;
+                                                                    }
+                                                                    
+                                                                    .dropdown-content button {
+                                                                      color: black;
+                                                                      padding: 12px 16px;
+                                                                      text-decoration: none;
+                                                                      display: inline-block;
+                                                                      margin-top: 50px;
+                                                                      margin-left: 20px;
+                                                                      margin-right: 20px;
+                                                                    }
+                                                                    
+                                                                    .dropdown a:hover {background-color: #ddd;}
+                                                                    
+                                                                    .show {display: block;}
+
+                                                                    #myDropdown {
+                                                                        margin-top: 2.7em;
+                                                                    }
+                                                                </style>
+                                                            
+                                                                <input onfocus="myFunction()" onkeydown="handleKeyDown(event)" type="search" name="q" placeholder="Search for brand, color, etc." autoComplete="off" spellcheck="false" autoCorrect="off" autoCapitalize="off" data-testid="site-search" title="Search..." aria-label="Search..." id="site-search" class="chakra-input css-xpvaq1" value=""/>
+                                                                <div id="myDropdown" class="dropdown-content">
+                                                                    <div class="range-slider" style="text-align: center;">
+                                                                        <label for="priceRange">Price Range</label><br><br>
+                                                                        <div id="priceRange"></div>
+                                                                        <div class="range-values">
+                                                                            <span id="value1">$0</span>
+                                                                            <span id="value2">$2,000</span>
+                                                                        </div>
+                                                                        <button onclick="selectButton('Sneakers')"><b><bigger>Sneakers</bigger></b></button>
+                                                                        <button onclick="selectButton('Apparel')"><b><bigger>Apparel</bigger></b></button>
+                                                                        <button onclick="selectButton('Accessories')"><b><bigger>Accessories</bigger></b></button>
+                                                                        <button onclick="selectButton('Collectibles')"><b><bigger>Collectibles</bigger></b></button>
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                                <script>
+                                                                    document.addEventListener('DOMContentLoaded', function () {
+                                                                        var searchInput = document.getElementById("site-search");
+                                                                        var dropdown = document.getElementById("myDropdown");
+                                                            
+                                                                        // Thêm sự kiện mousedown cho cả input và dropdown
+                                                                        document.addEventListener('mousedown', function (event) {
+                                                                            if (event.target === searchInput || event.target.closest("#myDropdown")) {
+                                                                                // Click vào input hoặc dropdown, không tắt dropdown
+                                                                                dropdown.classList.add("show");
+                                                                            } else {
+                                                                                // Click ra ngoài khu vực, tắt dropdown
+                                                                                dropdown.classList.remove("show");
+                                                                            }
+                                                                        });
+                                                                    
+                                                                        // Thêm sự kiện keydown cho input
+                                                                        searchInput.addEventListener('keydown', function (event) {
+                                                                            handleKeyDown(event);
+                                                                        });
+                                                                    });
+                                                            
+                                                                    function selectButton(value) {
+                                                                        var searchInput = document.getElementById("site-search");
+                                                                        var dropdown = document.getElementById("myDropdown");
+                                                            
+                                                                        // Nếu giá trị hiện tại của thanh input là giống với giá trị của button được nhấn,
+                                                                        // thì xóa giá trị của thanh input, ngược lại, cập nhật giá trị của thanh input
+                                                                        if (searchInput.value === value) {
+                                                                            searchInput.value = '';
+                                                                        } else {
+                                                                            searchInput.value = value;
+                                                                        }
+                                                            
+                                                                        // Đóng dropdown
+                                                                        // dropdown.classList.remove("show");
+                                                                    }
+                                                            
+                                                                    function handleKeyDown(event) {
+                                                                        var searchInput = document.getElementById("site-search");
+                                                                        var dropdown = document.getElementById("myDropdown");
+                                                            
+                                                                        // Kiểm tra nếu phím nhấn là Enter và có một lựa chọn được chọn
+                                                                        if (event.key === 'Enter' && searchInput.value) {
+                                                                            // Chuyển hướng đến đường link tương ứng
+                                                                            switch (searchInput.value.toLowerCase()) {
+                                                                                case 'sneakers':
+                                                                                    window.location.href = '../Shopping_List/Sneaker.html';
+                                                                                    break;
+                                                                                case 'apparel':
+                                                                                    window.location.href = '../Shopping_List/Apparel.html';
+                                                                                    break;
+                                                                                case 'accessories':
+                                                                                    window.location.href = '../Shopping_List/Accessories.html';
+                                                                                    break;
+                                                                                case 'collectibles':
+                                                                                    window.location.href = '../Shopping_List/Collectibles.html';
+                                                                                    break;
+                                                                                default:
+                                                                                    window.location.href = '../Shopping_List/Sneaker.html';
+                                                                                    break;
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                </script>
+                                                                <script>
+                                                                    const priceRange = document.getElementById('priceRange');
+                                                                    const value1 = document.getElementById('value1');
+                                                                    const value2 = document.getElementById('value2');
+                                                            
+                                                                    noUiSlider.create(priceRange, {
+                                                                        start: [0, 2000],
+                                                                        connect: true,
+                                                                        range: {
+                                                                            'min': 0,
+                                                                            'max': 2000
+                                                                        },
+                                                                        step: 1
+                                                                    });
+                                                            
+                                                                    priceRange.noUiSlider.on('update', function (values, handle) {
+                                                                        const val = values[handle];
+                                                                        if (handle === 0) {
+                                                                            value1.textContent = `$${val}`;
+                                                                        } else {
+                                                                            value2.textContent = `$${val}`;
+                                                                        }
+                                                                    });
+                                                                </script>
                                                             </div>
+                                                            
+                                                            
                                                         </div>
                                                         <span></span>
                                                     </div>
@@ -1713,29 +1907,21 @@
                                                     }
                                                 </style>
                                                 <ul class="nav-main-wrapper css-1sbb4a7">
-                                                    <!-- <li class="browse-dropdown" data-testid="navbar-menu-browse">
-                                                        <a data-testid="RouterSwitcherLink" href="/sneakers">Browse</a>
-                                                    </li>
-                                                    <li data-testid="nav-menu-news">
-                                                        <a href="https://stockx.com/news/">News</a>
-                                                    </li> -->
+                                                    <!-- <li class="browse-dropdown" data-testid="navbar-menu-browse"><a data-testid="RouterSwitcherLink" href="/sneakers">Browse</a></li>
+                                                    <li data-testid="nav-menu-news"><a href="https://stockx.com/news/">News</a></li> -->
                                                     <style data-emotion="css 7adww2">
                                                         .css-7adww2 .about-dropdown {
                                                             visibility: hidden;
                                                         }
-
-                                                        .css-7adww2:hover .about-dropdown,.css-7adww2[data-hover] .about-dropdown {
+                            
+                                                        .css-7adww2:hover .about-dropdown,
+                                                        .css-7adww2[data-hover] .about-dropdown {
                                                             visibility: visible;
                                                         }
                                                     </style>
-                                                    <!-- <li data-testid="navbar-menu-about" class="css-7adww2">
-                                                        <a data-testid="navbar-menu-about-link" href="https://stockx.com/about/how-it-works/">About</a>
-                                                    </li>
-                                                    <li>
-                                                        <a data-testid="navbar-menu-help" href="https://stockx.com/help/" target="_blank" rel="noopener">Help</a>
-                                                    </li> -->
-                                                    <li class="css-mhk4bl-DropdownContainer">
-                                                        <!-- <a id="popover-trigger-:R2belakl99f9mH1:" aria-haspopup="dialog" aria-expanded="false" aria-controls="popover-content-:R2belakl99f9mH1:" href="/sell">Sell</a> -->
+                                                    <!-- <li data-testid="navbar-menu-about" class="css-7adww2"><a data-testid="navbar-menu-about-link" href="https://stockx.com/about/how-it-works/">About</a></li>
+                                                    <li><a data-testid="navbar-menu-help" href="https://stockx.com/help/" target="_blank" rel="noopener">Help</a></li>
+                                                    <li class="css-mhk4bl-DropdownContainer"><a id="popover-trigger-:R2belakl99f9mH1:" aria-haspopup="dialog" aria-expanded="false" aria-controls="popover-content-:R2belakl99f9mH1:" href="/sell">Sell</a> -->
                                                         <style data-emotion="css 1qq679y">
                                                             .css-1qq679y {
                                                                 z-index: 10;
@@ -1768,13 +1954,16 @@
                                                                     border-radius: 0px;
                                                                     border: 0;
                                                                 }
-
-                                                                .chakra-ui-dark .css-16ixkcl:not([data-theme]),[data-theme=dark] .css-16ixkcl:not([data-theme]),.css-16ixkcl[data-theme=dark] {
+                            
+                                                                .chakra-ui-dark .css-16ixkcl:not([data-theme]),
+                                                                [data-theme=dark] .css-16ixkcl:not([data-theme]),
+                                                                .css-16ixkcl[data-theme=dark] {
                                                                     --popper-bg: var(--chakra-colors-gray-700);
                                                                     --popper-arrow-shadow-color: var(--chakra-colors-whiteAlpha-300);
                                                                 }
-
-                                                                .css-16ixkcl:focus-visible,.css-16ixkcl[data-focus-visible] {
+                            
+                                                                .css-16ixkcl:focus-visible,
+                                                                .css-16ixkcl[data-focus-visible] {
                                                                     outline: 2px solid transparent;
                                                                     outline-offset: 2px;
                                                                     box-shadow: var(--chakra-shadows-outline);
@@ -1788,26 +1977,29 @@
                                                                         letter-spacing: 0.004rem;
                                                                         list-style-type: none;
                                                                     }
-
+                            
                                                                     .css-73l4kq a {
-                                                                        padding: 0!important;
+                                                                        padding: 0 !important;
                                                                     }
                                                                 </style>
                                                                 <ul role="list" class="css-73l4kq">
-                                                                    <a color="neutral.black" text-decoration="none" href="/sell">
+                                                                    <!-- <a color="neutral.black" text-decoration="none" href="/sell"> -->
                                                                         <style data-emotion="css kjmw1z">
                                                                             .css-kjmw1z {
                                                                                 -webkit-padding-start: var(--chakra-space-4);
-                                                                                padding-inline-start:var(--chakra-space-4);-webkit-padding-end: var(--chakra-space-4);
-                                                                                padding-inline-end:var(--chakra-space-4);padding-top: var(--chakra-space-2);
+                                                                                padding-inline-start: var(--chakra-space-4);
+                                                                                -webkit-padding-end: var(--chakra-space-4);
+                                                                                padding-inline-end: var(--chakra-space-4);
+                                                                                padding-top: var(--chakra-space-2);
                                                                                 padding-bottom: var(--chakra-space-2);
                                                                                 -webkit-align-items: center;
                                                                                 -webkit-box-align: center;
                                                                                 -ms-flex-align: center;
                                                                                 align-items: center;
                                                                             }
-
-                                                                            .css-kjmw1z:hover,.css-kjmw1z[data-hover] {
+                            
+                                                                            .css-kjmw1z:hover,
+                                                                            .css-kjmw1z[data-hover] {
                                                                                 background: var(--chakra-colors-neutral-200);
                                                                             }
                                                                         </style>
@@ -1826,16 +2018,19 @@
                                                                                 flex-direction: row;
                                                                                 gap: var(--chakra-space-3);
                                                                                 -webkit-padding-start: var(--chakra-space-4);
-                                                                                padding-inline-start:var(--chakra-space-4);-webkit-padding-end: var(--chakra-space-4);
-                                                                                padding-inline-end:var(--chakra-space-4);padding-top: var(--chakra-space-2);
+                                                                                padding-inline-start: var(--chakra-space-4);
+                                                                                -webkit-padding-end: var(--chakra-space-4);
+                                                                                padding-inline-end: var(--chakra-space-4);
+                                                                                padding-top: var(--chakra-space-2);
                                                                                 padding-bottom: var(--chakra-space-2);
                                                                                 -webkit-align-items: center;
                                                                                 -webkit-box-align: center;
                                                                                 -ms-flex-align: center;
                                                                                 align-items: center;
                                                                             }
-
-                                                                            .css-1c28h4b:hover,.css-1c28h4b[data-hover] {
+                            
+                                                                            .css-1c28h4b:hover,
+                                                                            .css-1c28h4b[data-hover] {
                                                                                 background: var(--chakra-colors-neutral-200);
                                                                             }
                                                                         </style>
@@ -1852,10 +2047,7 @@
                                                                                     color: currentColor;
                                                                                     vertical-align: middle;
                                                                                 }
-                                                                            </style>
-                                                                            <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-bokek7">
-                                                                                <path fill="currentColor" d="M43 23.1H26.9V7H23.1V23.1H7V26.9H23.1V43H26.9V26.9H43V23.1Z"></path>
-                                                                            </svg>
+                                                                            </style><svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-bokek7"><path fill="currentColor" d="M43 23.1H26.9V7H23.1V23.1H7V26.9H23.1V43H26.9V26.9H43V23.1Z"></path></svg>
                                                                             <style data-emotion="css 4g4f6p">
                                                                                 .css-4g4f6p {
                                                                                     font-family: var(--chakra-fonts-suisseIntlRegular);
@@ -1867,41 +2059,21 @@
                                                                         </div>
                                                                     </a>
                                                                     <a color="neutral.black" text-decoration="none" href="/selling?status=current">
-                                                                        <div class="chakra-stack css-1c28h4b">
-                                                                            <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-bokek7">
-                                                                                <path d="M33.7 21.1H23V23.1H33.7V21.1Z" fill="currentColor"></path>
-                                                                                <path d="M33.7 27.8H23V29.8H33.7V27.8Z" fill="currentColor"></path>
-                                                                                <path d="M33.7 34.5H23V36.5H33.7V34.5Z" fill="currentColor"></path>
-                                                                                <path d="M20.1 20.3H16.5V23.9H20.1V20.3Z" fill="currentColor"></path>
-                                                                                <path d="M20.1 27H16.5V30.6H20.1V27Z" fill="currentColor"></path>
-                                                                                <path d="M20.1 33.8H16.5V37.4H20.1V33.8Z" fill="currentColor"></path>
-                                                                                <path d="M28.6998 9.29998C28.4998 7.49998 26.8998 6.09998 24.9998 6.09998C23.0998 6.09998 21.5998 7.49998 21.2998 9.29998H10.7998V43.8H39.0998V9.29998H28.6998ZM24.9998 8.09998C25.9998 8.09998 26.6998 8.89998 26.6998 9.79998C26.6998 10.8 25.8998 11.5 24.9998 11.5C24.0998 11.5 23.2998 10.7 23.2998 9.79998C23.2998 8.89998 23.9998 8.09998 24.9998 8.09998ZM37.0998 41.8H12.8998V11.4H17.4998V15.9H32.5998V11.4H37.1998V41.8H37.0998Z" fill="black"></path>
-                                                                            </svg>
-                                                                            <p class="chakra-text css-4g4f6p">Current Listings</p>
+                                                                        <div class="chakra-stack css-1c28h4b"><svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-bokek7"><path d="M33.7 21.1H23V23.1H33.7V21.1Z" fill="currentColor"></path><path d="M33.7 27.8H23V29.8H33.7V27.8Z" fill="currentColor"></path><path d="M33.7 34.5H23V36.5H33.7V34.5Z" fill="currentColor"></path><path d="M20.1 20.3H16.5V23.9H20.1V20.3Z" fill="currentColor"></path><path d="M20.1 27H16.5V30.6H20.1V27Z" fill="currentColor"></path><path d="M20.1 33.8H16.5V37.4H20.1V33.8Z" fill="currentColor"></path><path d="M28.6998 9.29998C28.4998 7.49998 26.8998 6.09998 24.9998 6.09998C23.0998 6.09998 21.5998 7.49998 21.2998 9.29998H10.7998V43.8H39.0998V9.29998H28.6998ZM24.9998 8.09998C25.9998 8.09998 26.6998 8.89998 26.6998 9.79998C26.6998 10.8 25.8998 11.5 24.9998 11.5C24.0998 11.5 23.2998 10.7 23.2998 9.79998C23.2998 8.89998 23.9998 8.09998 24.9998 8.09998ZM37.0998 41.8H12.8998V11.4H17.4998V15.9H32.5998V11.4H37.1998V41.8H37.0998Z" fill="black"></path></svg>
+                                                                            <p
+                                                                                class="chakra-text css-4g4f6p">Current Listings</p>
                                                                         </div>
                                                                     </a>
                                                                     <a color="neutral.black" text-decoration="none" href="/selling?status=pending">
-                                                                        <div class="chakra-stack css-1c28h4b">
-                                                                            <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-bokek7">
-                                                                                <path d="M25 43C15.1 43 7 34.9 7 25C7 15.1 15.1 7 25 7C34.9 7 43 15.1 43 25C43 34.9 34.9 43 25 43ZM25 9.3C16.3 9.3 9.3 16.3 9.3 25C9.3 33.7 16.3 40.7 25 40.7C33.7 40.7 40.7 33.7 40.7 25C40.7 16.3 33.7 9.3 25 9.3Z" fill="currentColor"></path>
-                                                                                <path d="M30.9999 29.9L23.8999 25.6V14.8H26.0999V24.4L32.0999 28L30.9999 29.9Z" fill="currentColor"></path>
-                                                                            </svg>
-                                                                            <p class="chakra-text css-4g4f6p">Pending Sales</p>
+                                                                        <div class="chakra-stack css-1c28h4b"><svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-bokek7"><path d="M25 43C15.1 43 7 34.9 7 25C7 15.1 15.1 7 25 7C34.9 7 43 15.1 43 25C43 34.9 34.9 43 25 43ZM25 9.3C16.3 9.3 9.3 16.3 9.3 25C9.3 33.7 16.3 40.7 25 40.7C33.7 40.7 40.7 33.7 40.7 25C40.7 16.3 33.7 9.3 25 9.3Z" fill="currentColor"></path><path d="M30.9999 29.9L23.8999 25.6V14.8H26.0999V24.4L32.0999 28L30.9999 29.9Z" fill="currentColor"></path></svg>
+                                                                            <p
+                                                                                class="chakra-text css-4g4f6p">Pending Sales</p>
                                                                         </div>
                                                                     </a>
                                                                     <a color="neutral.black" text-decoration="none" href="/selling?status=history">
-                                                                        <div class="chakra-stack css-1c28h4b">
-                                                                            <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-bokek7">
-                                                                                <path d="M44.06 41.65H5.83002V20.18H44.06V41.65ZM8.08002 39.4H41.81V22.43H8.08002V39.4Z" fill="currentColor"></path>
-                                                                                <path d="M24.94 37.09C28.3476 37.09 31.11 34.3276 31.11 30.92C31.11 27.5124 28.3476 24.75 24.94 24.75C21.5324 24.75 18.77 27.5124 18.77 30.92C18.77 34.3276 21.5324 37.09 24.94 37.09Z" fill="currentColor"></path>
-                                                                                <path d="M39.91 14.26H9.98999V16.51H39.91V14.26Z" fill="currentColor"></path>
-                                                                                <path d="M36.87 8.34998H13.01V10.6H36.87V8.34998Z" fill="currentColor"></path>
-                                                                                <path d="M43.04 29.35C38.61 29.35 35 25.74 35 21.31H37.48C37.48 24.38 39.97 26.87 43.04 26.87V29.35Z" fill="currentColor"></path>
-                                                                                <path d="M37.48 40.53H35C35 36.1 38.61 32.49 43.04 32.49V34.97C39.98 34.97 37.48 37.46 37.48 40.53Z" fill="currentColor"></path>
-                                                                                <path d="M6.96002 29.35V26.87C10.03 26.87 12.52 24.38 12.52 21.31H15C15 25.74 11.39 29.35 6.96002 29.35Z" fill="currentColor"></path>
-                                                                                <path d="M15 40.53H12.52C12.52 37.46 10.02 34.97 6.96002 34.97V32.49C11.39 32.49 15 36.09 15 40.53Z" fill="currentColor"></path>
-                                                                            </svg>
-                                                                            <p class="chakra-text css-4g4f6p">History</p>
+                                                                        <div class="chakra-stack css-1c28h4b"><svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-bokek7"><path d="M44.06 41.65H5.83002V20.18H44.06V41.65ZM8.08002 39.4H41.81V22.43H8.08002V39.4Z" fill="currentColor"></path><path d="M24.94 37.09C28.3476 37.09 31.11 34.3276 31.11 30.92C31.11 27.5124 28.3476 24.75 24.94 24.75C21.5324 24.75 18.77 27.5124 18.77 30.92C18.77 34.3276 21.5324 37.09 24.94 37.09Z" fill="currentColor"></path><path d="M39.91 14.26H9.98999V16.51H39.91V14.26Z" fill="currentColor"></path><path d="M36.87 8.34998H13.01V10.6H36.87V8.34998Z" fill="currentColor"></path><path d="M43.04 29.35C38.61 29.35 35 25.74 35 21.31H37.48C37.48 24.38 39.97 26.87 43.04 26.87V29.35Z" fill="currentColor"></path><path d="M37.48 40.53H35C35 36.1 38.61 32.49 43.04 32.49V34.97C39.98 34.97 37.48 37.46 37.48 40.53Z" fill="currentColor"></path><path d="M6.96002 29.35V26.87C10.03 26.87 12.52 24.38 12.52 21.31H15C15 25.74 11.39 29.35 6.96002 29.35Z" fill="currentColor"></path><path d="M15 40.53H12.52C12.52 37.46 10.02 34.97 6.96002 34.97V32.49C11.39 32.49 15 36.09 15 40.53Z" fill="currentColor"></path></svg>
+                                                                            <p
+                                                                                class="chakra-text css-4g4f6p">History</p>
                                                                         </div>
                                                                     </a>
                                                                     <style data-emotion="css z0itqf">
@@ -1917,27 +2089,560 @@
                                                                             -webkit-text-decoration: none;
                                                                             text-decoration: none;
                                                                         }
-
-                                                                        .css-z0itqf:hover,.css-z0itqf[data-hover] {
+                            
+                                                                        .css-z0itqf:hover,
+                                                                        .css-z0itqf[data-hover] {
                                                                             -webkit-text-decoration: none;
                                                                             text-decoration: none;
                                                                         }
-
-                                                                        .css-z0itqf:focus-visible,.css-z0itqf[data-focus-visible] {
+                            
+                                                                        .css-z0itqf:focus-visible,
+                                                                        .css-z0itqf[data-focus-visible] {
                                                                             box-shadow: var(--chakra-shadows-outline);
                                                                         }
                                                                     </style>
                                                                     <a class="chakra-link css-z0itqf" href="https://stockx.com/about/professionalsellers">
-                                                                        <div class="chakra-stack css-1c28h4b">
-                                                                            <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-bokek7">
-                                                                                <path d="M27.61 31.75L40.76 43.01V34.01L30.25 25.01L40.76 15.99V6.98999L22.39 22.74V18.25L9.23999 6.98999V15.99L19.75 24.99L9.23999 34.01V43.01L27.61 27.26V31.75Z" fill="currentColor"></path>
-                                                                            </svg>
-                                                                            <p class="chakra-text css-4g4f6p">Professional Tools</p>
+                                                                        <div class="chakra-stack css-1c28h4b"><svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-bokek7"><path d="M27.61 31.75L40.76 43.01V34.01L30.25 25.01L40.76 15.99V6.98999L22.39 22.74V18.25L9.23999 6.98999V15.99L19.75 24.99L9.23999 34.01V43.01L27.61 27.26V31.75Z" fill="currentColor"></path></svg>
+                                                                            <p
+                                                                                class="chakra-text css-4g4f6p">Professional Tools</p>
                                                                         </div>
                                                                     </a>
                                                                 </ul>
                                                             </section>
                                                         </div>
+                                                    </li>
+                                                    <style data-emotion="css 1esqt8y">
+                                                        .css-1esqt8y {
+                                                            list-style: none;
+                                                            margin: 0 8px;
+                                                        }
+                                                    </style>
+                                                    <li class="css-1esqt8y">
+                                                        <style data-emotion="css q2y3yl">
+                                                            .css-q2y3yl {
+                                                                color: inherit;
+                                                            }
+                                                        </style>
+                                                        <style data-emotion="css n84c8">
+                                                            .css-n84c8 {
+                                                                transition-property: var(--chakra-transition-property-common);
+                                                                transition-duration: var(--chakra-transition-duration-fast);
+                                                                transition-timing-function: var(--chakra-transition-easing-ease-out);
+                                                                cursor: pointer;
+                                                                -webkit-text-decoration: underline;
+                                                                text-decoration: underline;
+                                                                outline: 2px solid transparent;
+                                                                outline-offset: 2px;
+                                                                color: var(--chakra-colors-green-700);
+                                                                text-underline-position: under;
+                                                                color: inherit;
+                                                            }
+                            
+                                                            .css-n84c8:hover,
+                                                            .css-n84c8[data-hover] {
+                                                                -webkit-text-decoration: none;
+                                                                text-decoration: none;
+                                                            }
+                            
+                                                            .css-n84c8:focus-visible,
+                                                            .css-n84c8[data-focus-visible] {
+                                                                box-shadow: var(--chakra-shadows-outline);
+                                                            }
+                                                        </style>
+                                                        <a id="favoritesButton" class="chakra-link css-n84c8" data-testid="navbar-menu-favorites" aria-label="All Favorites">
+                                                            <style data-emotion="css 123vok7">
+                                                                .css-123vok7 {
+                                                                    display: inline-block;
+                                                                    line-height: 1em;
+                                                                    -webkit-flex-shrink: 0;
+                                                                    -ms-flex-negative: 0;
+                                                                    flex-shrink: 0;
+                                                                    color: currentColor;
+                                                                    vertical-align: middle;
+                                                                    height: var(--chakra-sizes-7);
+                                                                    width: var(--chakra-sizes-7);
+                                                                }
+                                                            </style><svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-123vok7"><path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path></svg></a>
+                                                            <span id="mySpan" style="position: absolute;background-color: red;width: 20px;height: 20px;display: flex;justify-content: center;align-items: center;border-radius: 50%;color: #fff;top: 60%;right: -2px;">1</span>
+                                                            <script>let favoritesCount = 10;</script>
+                                                            <script>
+                                                                function addToCartFromHeart() {
+                                                                    // Logic thêm sản phẩm vào giỏ hàng ở đây
+                            
+                                                                    // Tăng giá trị của favoritesCount
+                                                                    // favoritesCount++;
+                            
+                                                                    // Cập nhật hiển thị số lượng trên span
+                                                                    let favoritesCountSpan = document.getElementById("mySpan");
+                                                                    let currentCount = parseInt(favoritesCountSpan.innerHTML, 10);
+                                                                    let newCount = currentCount + 1;
+                                                                    favoritesCountSpan.innerHTML = newCount;
+                            
+                                                                    // Lấy giá trị hiện tại của 'mySpan1'
+                                                                    let Span = document.getElementById("mySpan1");
+                                                                    let current = parseInt(Span.innerHTML, 10);
+                            
+                                                                    // Tăng giá trị của 'mySpan1' lên 1 đơn vị
+                                                                    let newcurrent = current + 1;
+                                                                    Span.innerHTML = newcurrent;
+                            
+                                                                    let priceSpan = document.getElementById("price1");
+                                                                    let newPrice = 100 * newcurrent;
+                                                                    priceSpan.innerHTML = "$" + newPrice;
+                                                                    // Hiển thị thông báo
+                                                                    alert("Added to cart successfully!");
+                                                                }
+                            
+                                                                function minus(id, priceId) {
+                                                                    let Span = document.getElementById(id);
+                                                                    let priceSpan = document.getElementById(priceId);
+                            
+                                                                    if (!Span || !priceSpan) {
+                                                                        return;
+                                                                    }
+                                                                
+                                                                    let current = parseInt(Span.innerHTML, 10);
+                                                                    let price = parseInt(priceSpan.innerHTML.replace('$', ''), 10);
+                                                                
+                                                                    if (current > 1) {
+                                                                        let newcurrent = current - 1;
+                                                                        Span.innerHTML = newcurrent;
+                                                                    
+                                                                        let newPrice = 100 * newcurrent;
+                                                                        priceSpan.innerHTML = "$" + newPrice;
+                                                                    } else {
+                                                                        // Nếu giá trị xuống 0, ẩn class 'product1'
+                                                                        let product1Element = document.querySelector(".product1");
+                                                                        if (product1Element) {
+                                                                            product1Element.style.display = "none";
+                                                                        }
+                                                                    }
+                                                                }
+                            
+                                                                function incre(id, priceId) {
+                                                                    let Span = document.getElementById(id);
+                                                                    let priceSpan = document.getElementById(priceId);
+                                                                                                
+                                                                    if (!Span || !priceSpan) {
+                                                                        return; // Nếu không tìm thấy phần tử với id tương ứng, thoát khỏi hàm
+                                                                    }
+                                                                
+                                                                    let current = parseInt(Span.innerHTML, 10);
+                                                                    let price = parseInt(priceSpan.innerHTML.replace('$', ''), 10); // Lấy giá trị từ chuỗi và chuyển thành số
+                                                                
+                                                                    // Tăng giá trị đi 1 đơn vị
+                                                                    let newcurrent = current + 1;
+                                                                    Span.innerHTML = newcurrent;
+                                                                
+                                                                    // Tính toán giá mới khi tăng số lượng
+                                                                    let newPrice = 100 * newcurrent;
+                                                                    priceSpan.innerHTML = "$" + newPrice;
+                                                                }
+                            
+                                                                document.addEventListener('DOMContentLoaded', function() {
+                                                                    let listProductHTML = document.querySelector('.listProduct');
+                                                                    let listCartHTML = document.querySelector('.listCart');
+                                                                    let iconCart = document.querySelector('.icon-cart');
+                                                                    let iconCartSpan = document.querySelector('.icon-cart span');
+                                                                    let body = document.querySelector('body');
+                                                                    let closeCart = document.querySelector('.close');
+                                                                    let products = [];
+                                                                    let cart = [];
+                            
+                                                                    let favoritesButton = document.getElementById('favoritesButton');
+                                                                    favoritesButton.addEventListener('click', () => {
+                                                                        body.classList.toggle('showCart');
+                                                                    });
+                            
+                                                                    let closeCartButton = document.querySelector('.close');
+                                                                    closeCartButton.addEventListener('click', () => {
+                                                                        body.classList.remove('showCart');
+                                                                    });
+                            
+                                                                    iconCart.addEventListener('click', () => {
+                                                                        body.classList.toggle('showCart');
+                                                                    })
+                                                                    closeCart.addEventListener('click', () => {
+                                                                        body.classList.toggle('showCart');
+                                                                    })
+                            
+                                                                    const addDataToHTML = () => {
+                                                                    // remove datas default from HTML
+                                                                    
+                                                                        // add new datas
+                                                                        if(products.length > 0) // if has data
+                                                                        {
+                                                                            products.forEach(product => {
+                                                                                let newProduct = document.createElement('div');
+                                                                                newProduct.dataset.id = product.id;
+                                                                                newProduct.classList.add('item');
+                                                                                newProduct.innerHTML = 
+                                                                                `<img src="${product.image}" alt="">
+                                                                                <h2>${product.name}</h2>
+                                                                                <div class="price">$${product.price}</div>
+                                                                                <button class="addCart">Add To Cart</button>`;
+                                                                                listProductHTML.appendChild(newProduct);
+                                                                            });
+                                                                        }
+                                                                    }
+                                                                    listProductHTML.addEventListener('click', (event) => {
+                                                                        let positionClick = event.target;
+                                                                        if(positionClick.classList.contains('addCart')){
+                                                                            let id_product = positionClick.parentElement.dataset.id;
+                                                                            addToCart(id_product);
+                                                                        }
+                                                                    })
+                                                                    const addToCart = (product_id) => {
+                                                                        let positionThisProductInCart = cart.findIndex((value) => value.product_id == product_id);
+                                                                        if(cart.length <= 0){
+                                                                            cart = [{
+                                                                                product_id: product_id,
+                                                                                quantity: 1
+                                                                            }];
+                                                                        }else if(positionThisProductInCart < 0){
+                                                                            cart.push({
+                                                                                product_id: product_id,
+                                                                                quantity: 1
+                                                                            });
+                                                                        }else{
+                                                                            cart[positionThisProductInCart].quantity = cart[positionThisProductInCart].quantity + 1;
+                                                                        }
+                                                                        addCartToHTML();
+                                                                        addCartToMemory();
+                                                                    }
+                                                                    const addCartToMemory = () => {
+                                                                        localStorage.setItem('cart', JSON.stringify(cart));
+                                                                    }
+                                                                    const addCartToHTML = () => {
+                                                                        listCartHTML.innerHTML = '';
+                                                                        let totalQuantity = 0;
+                                                                        if(cart.length > 0){
+                                                                            cart.forEach(item => {
+                                                                                totalQuantity = totalQuantity +  item.quantity;
+                                                                                let newItem = document.createElement('div');
+                                                                                newItem.classList.add('item');
+                                                                                newItem.dataset.id = item.product_id;
+                                                                            
+                                                                                let positionProduct = products.findIndex((value) => value.id == item.product_id);
+                                                                                let info = products[positionProduct];
+                                                                                listCartHTML.appendChild(newItem);
+                                                                                newItem.innerHTML = `
+                                                                                <div class="image">
+                                                                                        <img src="${info.image}">
+                                                                                    </div>
+                                                                                    <div class="name">
+                                                                                    ${info.name}
+                                                                                    </div>
+                                                                                    <div class="totalPrice">$${info.price * item.quantity}</div>
+                                                                                    <div class="quantity">
+                                                                                        <span class="minus"><</span>
+                                                                                        <span>${item.quantity}</span>
+                                                                                        <span class="plus">></span>
+                                                                                    </div>
+                                                                                `;
+                                                                            })
+                                                                        }
+                                                                        iconCartSpan.innerText = totalQuantity;
+                                                                    }
+                            
+                                                                    listCartHTML.addEventListener('click', (event) => {
+                                                                        let positionClick = event.target;
+                                                                        if(positionClick.classList.contains('minus') || positionClick.classList.contains('plus')){
+                                                                            let product_id = positionClick.parentElement.parentElement.dataset.id;
+                                                                            let type = 'minus';
+                                                                            if(positionClick.classList.contains('plus')){
+                                                                                type = 'plus';
+                                                                            }
+                                                                            changeQuantityCart(product_id, type);
+                                                                        }
+                                                                    })
+                                                                    const changeQuantityCart = (product_id, type) => {
+                                                                        let positionItemInCart = cart.findIndex((value) => value.product_id == product_id);
+                                                                        if(positionItemInCart >= 0){
+                                                                            let info = cart[positionItemInCart];
+                                                                            switch (type) {
+                                                                                case 'plus':
+                                                                                    cart[positionItemInCart].quantity = cart[positionItemInCart].quantity + 1;
+                                                                                    break;
+                                                                            
+                                                                                default:
+                                                                                    let changeQuantity = cart[positionItemInCart].quantity - 1;
+                                                                                    if (changeQuantity > 0) {
+                                                                                        cart[positionItemInCart].quantity = changeQuantity;
+                                                                                    }else{
+                                                                                        cart.splice(positionItemInCart, 1);
+                                                                                    }
+                                                                                    break;
+                                                                            }
+                                                                        }
+                                                                        addCartToHTML();
+                                                                        addCartToMemory();
+                                                                    }
+                            
+                                                                    const initApp = () => {
+                                                                        // get data product
+                                                                        fetch('products.json')
+                                                                        .then(response => response.json())
+                                                                        .then(data => {
+                                                                            products = data;
+                                                                            addDataToHTML();
+                                                                        
+                                                                            // get data cart from memory
+                                                                            if(localStorage.getItem('cart')){
+                                                                                cart = JSON.parse(localStorage.getItem('cart'));
+                                                                                addCartToHTML();
+                                                                            }
+                                                                        })
+                                                                    }
+                                                                    initApp();
+                                                                });
+                                                                // Hàm thêm nội dung HTML mới vào khung Shopping Cart
+                                                                // function addCartToCartTab() {
+                                                                //     const cartTab = document.querySelector('.listCart');
+                                                                //     const newCartItem = createCartItem(); // Thay bằng hàm tạo nội dung cart item của bạn
+                                                                //     cartTab.appendChild(newCartItem);
+                                                                // }
+                                                                
+                                                                // // Hàm tạo nội dung mới của cart item, thay thế nội dung của hàm này bằng HTML bạn muốn thêm
+                                                                // function createCartItem() {
+                                                                //     const newCartItem = document.createElement('div');
+                                                                //     newCartItem.classList.add('item');
+                                                                //     newCartItem.innerHTML = '<p>This is a new cart item!</p>';
+                                                                //     return newCartItem;
+                                                                // }
+                                                            </script>
+                                                            <style>
+                                                                body{
+                                                                    margin: 0;
+                                                                    /* font-family: Poppins; */
+                                                                }
+                                                                .container{
+                                                                    width: 900px;
+                                                                    margin: auto;
+                                                                    max-width: 90vw;
+                                                                    text-align: center;
+                                                                    padding-top: 10px;
+                                                                    transition: transform .5s;
+                                                                }
+                                                                svg{
+                                                                    width: 30px;
+                                                                }
+                                                                header{
+                                                                    display: flex;
+                                                                    justify-content: space-between;
+                                                                    align-items: center;
+                                                                    padding: 20px 0;
+                                                                }
+                                                                .icon-cart{
+                                                                    position: relative;
+                                                                }
+                                                                .icon-cart span{
+                                                                    position: absolute;
+                                                                    background-color: red;
+                                                                    width: 30px;
+                                                                    height: 30px;
+                                                                    display: flex;
+                                                                    justify-content: center;
+                                                                    align-items: center;
+                                                                    border-radius: 50%;
+                                                                    color: #fff;
+                                                                    top: 50%;
+                                                                    right: -20px;
+                                                                }
+                                                                .title{
+                                                                    font-size: xx-large;
+                                                                }
+                                                                .listProduct .item img{
+                                                                    width: 90%;
+                                                                    filter: drop-shadow(0 50px 20px #0009);
+                                                                }
+                                                                .listProduct{
+                                                                    display: grid;
+                                                                    grid-template-columns: repeat(4, 1fr);
+                                                                    gap: 20px;
+                                                                }
+                                                                .listProduct .item{
+                                                                    background-color: #EEEEE6;
+                                                                    padding: 20px;
+                                                                    border-radius: 20px;
+                                                                }
+                                                                .listProduct .item h2{
+                                                                    font-weight: 500;
+                                                                    font-size: large;
+                                                                }
+                                                                .listProduct .item .price{
+                                                                    letter-spacing: 7px;
+                                                                    font-size: small;
+                                                                }
+                                                                .listProduct .item button{
+                                                                    background-color: #353432;
+                                                                    color: #eee;
+                                                                    border: none;
+                                                                    padding: 5px 10px;
+                                                                    margin-top: 10px;
+                                                                    border-radius: 20px;
+                                                                }
+                            
+                                                                /* cart */
+                                                                .cartTab{
+                                                                    width: 450px;
+                                                                    background-color: #353432;
+                                                                    color: #eee;
+                                                                    position: fixed;
+                                                                    top: 0;
+                                                                    right: -450px;
+                                                                    bottom: 0;
+                                                                    display: grid;
+                                                                    grid-template-rows: 70px 1fr 70px;
+                                                                    transition: .5s;
+                                                                    margin-top: 90px;
+                                                                    padding: 10px;
+                                                                }
+                                                                body.showCart .cartTab{
+                                                                    right: 0;
+                                                                }
+                                                                body.showCart .container{
+                                                                    transform: translateX(-250px);
+                                                                }
+                                                                .cartTab h1{
+                                                                    padding: 20px;
+                                                                    margin: 0;
+                                                                    font-weight: 300;
+                                                                }
+                                                                .cartTab .btn {
+                                                                    display: grid;
+                                                                    position: sticky;
+                                                                    top: 0; /* Đặt vị trí top là 0 để nó giữ ở trên cùng của .cartTab */
+                                                                    grid-template-columns: repeat(2, 1fr);
+                                                                    background-color: #353432;
+                                                                    padding: 10px;
+                                                                }
+                                                                .cartTab button{
+                                                                    background-color: #E8BC0E;
+                                                                    border: none;
+                                                                    font-family: Poppins;
+                                                                    font-weight: 500;
+                                                                    cursor: pointer;
+                                                                }
+                                                                .cartTab .close{
+                                                                    background-color: #eee;
+                                                                }
+                            
+                                                                .listCart {
+                                                                    overflow: auto;
+                                                                }
+                            
+                                                                .listCart .item img{
+                                                                    width: 30%;
+                                                                    margin-right: auto;
+                                                                    display: inline-flex;
+                                                                }
+                                                                .listCart .item{
+                                                                    display: grid;
+                                                                    grid-template-columns: 70px 150px 50px 1fr;
+                                                                    gap: 10px;
+                                                                    text-align: center;
+                                                                    align-items: center;
+                                                                }
+                                                                /* .quantity span{
+                                                                    display: inline-block;
+                                                                    width: 25px;
+                                                                    height: 25px;
+                                                                    background-color: #eee;
+                                                                    border-radius: 50%;
+                                                                    color: #555;
+                                                                    cursor: pointer;
+                                                                } */
+                                                                .minus {
+                                                                    display: inline-block;
+                                                                    width: 25px;
+                                                                    height: 25px;
+                                                                    background-color: #eee;
+                                                                    border-radius: 50%;
+                                                                    color: #555;
+                                                                    cursor: pointer;
+                                                                }
+                                                                .plus {
+                                                                    display: inline-block;
+                                                                    width: 25px;
+                                                                    height: 25px;
+                                                                    background-color: #eee;
+                                                                    border-radius: 50%;
+                                                                    color: #555;
+                                                                    cursor: pointer;
+                                                                }
+                                                                /* .listCart .quantity span:nth-child(2){
+                                                                    background-color: transparent;
+                                                                    color: #eee;
+                                                                    cursor: auto;
+                                                                }
+                                                                .listCart .item:nth-child(even){
+                                                                    background-color: #eee1;
+                                                                } */
+                                                                .listCart{
+                                                                    overflow: auto;
+                                                                }
+                                                                .listCart::-webkit-scrollbar{
+                                                                    width: 0;
+                                                                }
+                                                                @media only screen and (max-width: 992px) {
+                                                                    .listProduct{
+                                                                        grid-template-columns: repeat(3, 1fr);
+                                                                    }
+                                                                }
+                            
+                            
+                                                                /* mobile */
+                                                                @media only screen and (max-width: 768px) {
+                                                                    .listProduct{
+                                                                        grid-template-columns: repeat(2, 1fr);
+                                                                    }
+                                                                }
+                                                                
+                                                                .image {
+                                                                    width: 33%;
+                                                                    float: left;
+                                                                    display: inline;
+                                                                }
+                                                                
+                                                                /* .quantity {
+                                                                    display: inline-block;
+                                                                } */
+                                                            </style>
+                                                            <div class="cartTab">
+                                                                <h1 style="text-align: center;">Shopping Cart</h1>
+                                                                <div class="listCart">
+                                                                    <div class="product1" style="margin-bottom: 20px;height: 100px;">
+                                                                        <img class="image" src="../../../Assets/In4/Air-Jordan-1-Retro-Low-Golf-Travis-Scott-Neutral-Olive-Product.avif">
+                                                                        <div style="margin-left: 10px;width: 33%;min-height: none;float: left;">
+                                                                            <span>Air Jordan 1 Retro Low Golf Travis Scott <br>Neutral Olive</span><Br>
+                                                                            <span id="price1">$100</span>
+                                                                            <div class="quantity">
+                                                                                <span class="minus" onclick="minus('mySpan1','price1')">&nbsp;&nbsp;&lt;</span>
+                                                                                <span id="mySpan1">1</span>
+                                                                                <span class="plus" onclick="incre('mySpan1','price1')">&nbsp;&nbsp;&nbsp;></span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!-- <div class="product2" style="margin-bottom: 20px;height: 100px;">
+                                                                        <img class="image" src="../../Assets/In4/Air-Jordan-1-Retro-Low-Golf-Travis-Scott-Neutral-Olive-Product.avif">
+                                                                        <div style="margin-left: 10px;width: 33%;min-height: none;float: left;">
+                                                                            <span>Air Jordan 1 Retro Low Golf Travis Scott <br>Neutral Olive</span><Br>
+                                                                            <span>$100</span>
+                                                                            <div class="quantity">
+                                                                                <span class="minus">&nbsp;&nbsp;&lt;</span>
+                                                                                <span>&nbsp;&nbsp;&nbsp;1</span>
+                                                                                <span class="plus">&nbsp;&nbsp;></span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div> -->
+                                                                </div>
+                                                                <div class="btn">
+                                                                    <button class="close" style="color: grey;">CLOSE</button>
+                                                                    <button class="checkOut">Check Out</button>
+                                                                </div>
+                                                            </div>
+                                                        </a>
                                                     </li>
                                                     <li data-testid="navbar-menu-message-center">
                                                         <style data-emotion="css 1baulvz">
@@ -1946,8 +2651,111 @@
                                                             }
                                                         </style>
                                                         <span tabindex="0" class="css-1baulvz">
-                                                            <style data-emotion="css 1j5dmit">
-                                                                .css-1j5dmit {
+                                                            <style data-emotion="css hb3csr">
+                                                                .css-hb3csr{
+                                                                    display:-webkit-inline-box;
+                                                                    display:-webkit-inline-flex;display:
+                                                                    -ms-inline-flexbox;display:inline-flex;
+                                                                    -webkit-appearance:none;
+                                                                    -moz-appearance:none;
+                                                                    -ms-appearance:none;
+                                                                    appearance:none;
+                                                                    -webkit-align-items:center;
+                                                                    -webkit-box-align:center;
+                                                                    -ms-flex-align:center;
+                                                                    align-items:center;
+                                                                    -webkit-box-pack:center;
+                                                                    -ms-flex-pack:center;
+                                                                    -webkit-justify-content:center;
+                                                                    justify-content:center;
+                                                                    -webkit-user-select:none;
+                                                                    -moz-user-select:none;
+                                                                    -ms-user-select:none;
+                                                                    user-select:none;
+                                                                    position:relative;
+                                                                    white-space:nowrap;
+                                                                    vertical-align:middle;
+                                                                    outline:2px solid transparent;
+                                                                    outline-offset:2px;
+                                                                    border-radius:0px;
+                                                                    font-weight:var(--chakra-fontWeights-semibold);transition-property:var(--chakra-transition-property-common);
+                                                                    transition-duration:var(--chakra-transition-duration-normal);font-family:var(--chakra-fonts-suisseIntlRegular);
+                                                                    font-style:normal;
+                                                                    -webkit-padding-start:1rem;
+                                                                    padding-inline-start:1rem;
+                                                                    -webkit-padding-end:1rem;
+                                                                    padding-inline-end:1rem;
+                                                                    padding-top:0.625rem;
+                                                                    padding-bottom:0.625rem;
+                                                                    min-width:auto;
+                                                                    height:var(--chakra-sizes-6);
+                                                                    color:var(--chakra-colors-gray-800);
+                                                                    padding:0.625rem;
+                                                                    line-height:1;
+                                                                    text-overflow:clip;
+                                                                    max-width:2.5rem;
+                                                                    max-height:2.5rem;
+                                                                    font-size:1.25rem;
+                                                                    background:var(--chakra-colors-transparent);
+                                                                    width:var(--chakra-sizes-6);
+                                                                    margin-right:0px;
+                                                                }
+                                                                    .css-hb3csr:focus-visible,.css-hb3csr[data-focus-visible]{
+                                                                        box-shadow:inset 0 0 0 4px #2C7DF6;
+                                                                        border-color:var(--chakra-colors-transparent);
+                                                                    }
+                                                                    .css-hb3csr:focus,.css-hb3csr[data-focus]{
+                                                                        outline:2px solid transparent;
+                                                                        outline-offset:2px;
+                                                                        box-shadow:var(--chakra-shadows-none);
+                                                                    }
+                                                                    .css-hb3csr[data-loading],.css-hb3csr[aria-busy=true]{
+                                                                        display:-webkit-inline-box;
+                                                                        display:-webkit-inline-flex;
+                                                                        display:-ms-inline-flexbox;
+                                                                        display:inline-flex;text-overflow:none;
+                                                                    }
+                                                                    .css-hb3csr:hover,.css-hb3csr[data-hover]{
+                                                                        cursor:pointer;
+                                                                    }
+                                                                    .css-hb3csr:disabled,.css-hb3csr[disabled],.css-hb3csr[aria-disabled=true],.css-hb3csr[data-disabled]{
+                                                                        background:var(--chakra-colors-transparent);
+                                                                        color:var(--chakra-colors-neutral-400);
+                                                                    }
+                                                                    .css-hb3csr:disabled:hover,.css-hb3csr[disabled]:hover,.css-hb3csr[aria-disabled=true]:hover,.css-hb3csr[data-disabled]:hover,.css-hb3csr:disabled[data-hover],.css-hb3csr[disabled][data-hover],.css-hb3csr[aria-disabled=true][data-hover],.css-hb3csr[data-disabled][data-hover]{
+                                                                        background:var(--chakra-colors-transparent);
+                                                                        color:var(--chakra-colors-neutral-400);
+                                                                    }
+                                                                    .css-hb3csr:active,.css-hb3csr[data-active]{
+                                                                        background:var(--chakra-colors-transparent);
+                                                                    }
+                                                            </style>
+                                                            <!-- <button type="button" class="chakra-button css-hb3csr" aria-label="Notification Icon"> -->
+                                                                <style data-emotion="css 1qub7gy">.css-1qub7gy{
+                                                                    width:var(--chakra-sizes-7);
+                                                                    height:var(--chakra-sizes-7);
+                                                                    display:inline-block;
+                                                                    line-height:1em;
+                                                                    -webkit-flex-shrink:0;
+                                                                    -ms-flex-negative:0;
+                                                                    flex-shrink:0;
+                                                                    color:currentColor;
+                                                                    vertical-align:middle;
+                                                                }
+                                                                </style>
+                                                                <!-- <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-1qub7gy" aria-hidden="true">
+                                                                    <path d="M41.0999 36.8H8.8999L11.0999 34.8C14.0999 32.1 14.4999 25.2 14.3999 22.7C14.3999 16.3 19.0999 11.1 24.7999 11.1C30.4999 11.1 35.1999 16.3 35.1999 22.6C35.0999 25.3 35.5999 32.5 38.3999 34.7L41.0999 36.8ZM14.1999 34.6H35.3999C32.8999 30.5 32.9999 23.6 32.9999 22.7C32.9999 17.6 29.2999 13.5 24.7999 13.5C20.2999 13.5 16.5999 17.7 16.5999 22.8C16.6999 23 16.8999 30.1 14.1999 34.6Z" fill="currentColor"></path>
+                                                                    <path d="M28.7998 39.1C28.7998 41.3 26.9998 43.1 24.7998 43.1C22.5998 43.1 20.7998 41.3 20.7998 39.1H28.7998Z" fill="currentColor"></path>
+                                                                    <path d="M25.988 6.99458L23.688 7.00537L23.7129 12.3054L26.0129 12.2946L25.988 6.99458Z" fill="currentColor"></path>
+                                                                </svg> -->
+                                                            <!-- </button> -->
+                                                        </span>
+                                                    </li>
+                                                    <li
+                                                        role="presentation" data-testid="navbar-menu-myaccount"><a aria-label="My Account" href="/profile"><svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-1qub7gy"><path d="M25 26.6999C19.8 26.6999 15.6 22.4999 15.6 17.2999C15.6 12.0999 19.8 7.8999 25 7.8999C30.2 7.8999 34.4 12.0999 34.4 17.2999C34.4 22.4999 30.2 26.6999 25 26.6999ZM25 10.0999C21.1 10.0999 17.8 13.2999 17.8 17.2999C17.8 21.2999 21 24.4999 25 24.4999C29 24.4999 32.2 21.2999 32.2 17.2999C32.2 13.2999 28.9 10.0999 25 10.0999Z" fill="currentColor"></path><path d="M41.4 42.1998C39.6 34.6998 32.8 29.2998 25 29.2998C17.3 29.2998 10.4 34.6998 8.59998 42.1998H10.9C12.6 35.9998 18.4 31.4998 24.9 31.4998C31.4 31.4998 37.2 35.9998 38.9 42.1998H41.4Z" fill="currentColor"></path></svg></a></li>
+                                                        <li style="list-style-type:none">
+                                                            <style data-emotion="css 3fqh6r">
+                                                                .css-3fqh6r {
                                                                     display: -webkit-inline-box;
                                                                     display: -webkit-inline-flex;
                                                                     display: -ms-inline-flexbox;
@@ -1973,6 +2781,7 @@
                                                                     vertical-align: middle;
                                                                     outline: 2px solid transparent;
                                                                     outline-offset: 2px;
+                                                                    line-height: 1.375;
                                                                     border-radius: 0px;
                                                                     font-weight: var(--chakra-fontWeights-semibold);
                                                                     transition-property: var(--chakra-transition-property-common);
@@ -1981,257 +2790,55 @@
                                                                     font-style: normal;
                                                                     -webkit-padding-start: 1rem;
                                                                     padding-inline-start:1rem;-webkit-padding-end: 1rem;
-                                                                    padding-inline-end:1rem;padding-top: 0.625rem;
-                                                                    padding-bottom: 0.625rem;
+                                                                    padding-inline-end:1rem;padding-top: 0.375rem;
+                                                                    padding-bottom: 0.375rem;
+                                                                    height: 32px;
                                                                     min-width: auto;
-                                                                    height: var(--chakra-sizes-6);
-                                                                    color: var(--chakra-colors-gray-800);
-                                                                    padding: 0.625rem;
-                                                                    line-height: 1;
-                                                                    text-overflow: clip;
-                                                                    max-width: 2.5rem;
-                                                                    max-height: 2.5rem;
-                                                                    font-size: 1.25rem;
-                                                                    background: var(--chakra-colors-transparent);
-                                                                    width: var(--chakra-sizes-6);
-                                                                    margin-right: var(--chakra-space-3);
+                                                                    background: var(--chakra-colors-neutral-600);
+                                                                    font-size: var(--chakra-fontSizes-md);
+                                                                    color: var(--chakra-colors-neutral-white);
                                                                 }
-
-                                                                .css-1j5dmit:focus-visible,.css-1j5dmit[data-focus-visible] {
+                            
+                                                                .css-3fqh6r:focus-visible,.css-3fqh6r[data-focus-visible] {
                                                                     box-shadow: inset 0 0 0 4px #2C7DF6;
                                                                     border-color: var(--chakra-colors-transparent);
                                                                 }
-
-                                                                .css-1j5dmit:focus,.css-1j5dmit[data-focus] {
+                            
+                                                                .css-3fqh6r:hover,.css-3fqh6r[data-hover] {
+                                                                    color: var(--chakra-colors-neutral-200);
+                                                                    background: var(--chakra-colors-neutral-black);
+                                                                }
+                            
+                                                                .css-3fqh6r:hover:disabled,.css-3fqh6r[data-hover]:disabled,.css-3fqh6r:hover[disabled],.css-3fqh6r[data-hover][disabled],.css-3fqh6r:hover[aria-disabled=true],.css-3fqh6r[data-hover][aria-disabled=true],.css-3fqh6r:hover[data-disabled],.css-3fqh6r[data-hover][data-disabled] {
+                                                                    background: initial;
+                                                                }
+                            
+                                                                .css-3fqh6r:active,.css-3fqh6r[data-active] {
+                                                                    box-shadow: var(--chakra-shadows-none);
+                                                                    color: var(--chakra-colors-neutral-200);
+                                                                    background: var(--chakra-colors-neutral-black);
+                                                                }
+                            
+                                                                .css-3fqh6r:focus,.css-3fqh6r[data-focus] {
                                                                     outline: 2px solid transparent;
                                                                     outline-offset: 2px;
                                                                     box-shadow: var(--chakra-shadows-none);
                                                                 }
-
-                                                                .css-1j5dmit[data-loading],.css-1j5dmit[aria-busy=true] {
+                            
+                                                                .css-3fqh6r[data-loading],.css-3fqh6r[aria-busy=true] {
                                                                     display: -webkit-inline-box;
                                                                     display: -webkit-inline-flex;
                                                                     display: -ms-inline-flexbox;
                                                                     display: inline-flex;
                                                                     text-overflow: none;
                                                                 }
-
-                                                                .css-1j5dmit:hover,.css-1j5dmit[data-hover] {
-                                                                    cursor: pointer;
-                                                                }
-
-                                                                .css-1j5dmit:disabled,.css-1j5dmit[disabled],.css-1j5dmit[aria-disabled=true],.css-1j5dmit[data-disabled] {
-                                                                    background: var(--chakra-colors-transparent);
-                                                                    color: var(--chakra-colors-neutral-400);
-                                                                }
-
-                                                                .css-1j5dmit:disabled:hover,.css-1j5dmit[disabled]:hover,.css-1j5dmit[aria-disabled=true]:hover,.css-1j5dmit[data-disabled]:hover,.css-1j5dmit:disabled[data-hover],.css-1j5dmit[disabled][data-hover],.css-1j5dmit[aria-disabled=true][data-hover],.css-1j5dmit[data-disabled][data-hover] {
-                                                                    background: var(--chakra-colors-transparent);
-                                                                    color: var(--chakra-colors-neutral-400);
-                                                                }
-
-                                                                .css-1j5dmit:active,.css-1j5dmit[data-active] {
-                                                                    background: var(--chakra-colors-transparent);
+                            
+                                                                .css-3fqh6r:disabled,.css-3fqh6r[disabled],.css-3fqh6r[aria-disabled=true],.css-3fqh6r[data-disabled] {
+                                                                    pointer-events: none;
                                                                 }
                                                             </style>
-                                                            <!-- <button type="button" class="chakra-button css-1j5dmit" aria-label="Notification Unread Icon">
-                                                                <style data-emotion="css 1qub7gy">
-                                                                    .css-1qub7gy {
-                                                                        width: var(--chakra-sizes-7);
-                                                                        height: var(--chakra-sizes-7);
-                                                                        display: inline-block;
-                                                                        line-height: 1em;
-                                                                        -webkit-flex-shrink: 0;
-                                                                        -ms-flex-negative: 0;
-                                                                        flex-shrink: 0;
-                                                                        color: currentColor;
-                                                                        vertical-align: middle;
-                                                                    }
-                                                                </style>
-                                                                <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-1qub7gy" aria-hidden="true">
-                                                                    <path d="M28.7998 39.1C28.7998 41.3 26.9998 43.1 24.7998 43.1C22.5998 43.1 20.7998 41.3 20.7998 39.1H28.7998Z" fill="currentColor"></path>
-                                                                    <path d="M25.988 6.99458L23.688 7.00537L23.7129 12.3054L26.0129 12.2946L25.988 6.99458Z" fill="currentColor"></path>
-                                                                    <path d="M35.4 26.1C34.6 26 33.8 25.8 33.1 25.4C33.3 28 33.8 31.8 35.4 34.5H14.2C16.9 30 16.7 22.9 16.7 22.6C16.7 17.5 20.4 13.3 24.9 13.3C26.6 13.3 28.2 13.9 29.5 14.9C29.8 14.2 30.3 13.6 30.8 13.1C29.1 11.8 27.1 11.1 24.9 11.1C19.2 11.1 14.5 16.3 14.5 22.7C14.5 22.8 14.8 31.6 11.2 34.8L9 36.8H41.3L38.7 34.8C36.5 33.3 35.7 29.3 35.4 26.1Z" fill="currentColor"></path>
-                                                                    <path d="M36.3999 24C39.4375 24 41.8999 21.5376 41.8999 18.5C41.8999 15.4624 39.4375 13 36.3999 13C33.3623 13 30.8999 15.4624 30.8999 18.5C30.8999 21.5376 33.3623 24 36.3999 24Z" fill="#006340"></path>
-                                                                    <path d="M36.3999 13C39.3999 13 41.8999 15.5 41.8999 18.5C41.8999 21.5 39.3999 24 36.3999 24C33.3999 24 30.8999 21.5 30.8999 18.5C30.8999 15.5 33.3999 13 36.3999 13Z" fill="#006340"></path>
-                                                                </svg>
-                                                            </button> -->
-                                                        </span>
-                                                    </li>
-                                                    <li style="list-style-type:none">
-                                                        <style data-emotion="css 1xi7ynr">
-                                                            .css-1xi7ynr {
-                                                                display: -webkit-inline-box;
-                                                                display: -webkit-inline-flex;
-                                                                display: -ms-inline-flexbox;
-                                                                display: inline-flex;
-                                                                -webkit-appearance: none;
-                                                                -moz-appearance: none;
-                                                                -ms-appearance: none;
-                                                                appearance: none;
-                                                                -webkit-align-items: center;
-                                                                -webkit-box-align: center;
-                                                                -ms-flex-align: center;
-                                                                align-items: center;
-                                                                -webkit-box-pack: center;
-                                                                -ms-flex-pack: center;
-                                                                -webkit-justify-content: center;
-                                                                justify-content: center;
-                                                                -webkit-user-select: none;
-                                                                -moz-user-select: none;
-                                                                -ms-user-select: none;
-                                                                user-select: none;
-                                                                position: relative;
-                                                                white-space: nowrap;
-                                                                vertical-align: middle;
-                                                                outline: 2px solid transparent;
-                                                                outline-offset: 2px;
-                                                                line-height: 1.375;
-                                                                border-radius: 0px;
-                                                                font-weight: var(--chakra-fontWeights-semibold);
-                                                                transition-property: var(--chakra-transition-property-common);
-                                                                transition-duration: var(--chakra-transition-duration-normal);
-                                                                font-family: var(--chakra-fonts-suisseIntlRegular);
-                                                                font-style: normal;
-                                                                -webkit-padding-start: 1rem;
-                                                                padding-inline-start:1rem;-webkit-padding-end: 1rem;
-                                                                padding-inline-end:1rem;padding-top: 0.375rem;
-                                                                padding-bottom: 0.375rem;
-                                                                height: 32px;
-                                                                min-width: auto;
-                                                                background: var(--chakra-colors-transparent);
-                                                                border: 1px solid;
-                                                                border-color: var(--chakra-colors-neutral-black);
-                                                                color: var(--chakra-colors-neutral-600);
-                                                                font-size: var(--chakra-fontSizes-md);
-                                                            }
-
-                                                            .css-1xi7ynr:focus-visible,.css-1xi7ynr[data-focus-visible] {
-                                                                box-shadow: inset 0 0 0 4px #2C7DF6;
-                                                                border-color: var(--chakra-colors-transparent);
-                                                            }
-
-                                                            .css-1xi7ynr:active,.css-1xi7ynr[data-active] {
-                                                                box-shadow: var(--chakra-shadows-none);
-                                                                background: var(--chakra-colors-neutral-black);
-                                                                color: var(--chakra-colors-neutral-white);
-                                                            }
-
-                                                            .css-1xi7ynr:focus,.css-1xi7ynr[data-focus] {
-                                                                outline: 2px solid transparent;
-                                                                outline-offset: 2px;
-                                                                box-shadow: var(--chakra-shadows-none);
-                                                            }
-
-                                                            .css-1xi7ynr[data-loading],.css-1xi7ynr[aria-busy=true] {
-                                                                display: -webkit-inline-box;
-                                                                display: -webkit-inline-flex;
-                                                                display: -ms-inline-flexbox;
-                                                                display: inline-flex;
-                                                                text-overflow: none;
-                                                            }
-
-                                                            .css-1xi7ynr[data-loading]:hover,.css-1xi7ynr[aria-busy=true]:hover,.css-1xi7ynr[data-loading][data-hover],.css-1xi7ynr[aria-busy=true][data-hover] {
-                                                                color: var(--chakra-colors-neutral-white);
-                                                            }
-
-                                                            .css-1xi7ynr:hover,.css-1xi7ynr[data-hover] {
-                                                                color: var(--chakra-colors-neutral-white);
-                                                                background-color: var(--chakra-colors-neutral-black);
-                                                            }
-
-                                                            .css-1xi7ynr:disabled,.css-1xi7ynr[disabled],.css-1xi7ynr[aria-disabled=true],.css-1xi7ynr[data-disabled] {
-                                                                pointer-events: none;
-                                                            }
-                                                        </style>
-                                                        <button type="button" class="chakra-button css-1xi7ynr" to="" id="nav-login"><a href="../SignUp_Login.html">Login</a></button>
-                                                    </li>
-                                                    <li style="list-style-type:none">
-                                                        <style data-emotion="css 3fqh6r">
-                                                            .css-3fqh6r {
-                                                                display: -webkit-inline-box;
-                                                                display: -webkit-inline-flex;
-                                                                display: -ms-inline-flexbox;
-                                                                display: inline-flex;
-                                                                -webkit-appearance: none;
-                                                                -moz-appearance: none;
-                                                                -ms-appearance: none;
-                                                                appearance: none;
-                                                                -webkit-align-items: center;
-                                                                -webkit-box-align: center;
-                                                                -ms-flex-align: center;
-                                                                align-items: center;
-                                                                -webkit-box-pack: center;
-                                                                -ms-flex-pack: center;
-                                                                -webkit-justify-content: center;
-                                                                justify-content: center;
-                                                                -webkit-user-select: none;
-                                                                -moz-user-select: none;
-                                                                -ms-user-select: none;
-                                                                user-select: none;
-                                                                position: relative;
-                                                                white-space: nowrap;
-                                                                vertical-align: middle;
-                                                                outline: 2px solid transparent;
-                                                                outline-offset: 2px;
-                                                                line-height: 1.375;
-                                                                border-radius: 0px;
-                                                                font-weight: var(--chakra-fontWeights-semibold);
-                                                                transition-property: var(--chakra-transition-property-common);
-                                                                transition-duration: var(--chakra-transition-duration-normal);
-                                                                font-family: var(--chakra-fonts-suisseIntlRegular);
-                                                                font-style: normal;
-                                                                -webkit-padding-start: 1rem;
-                                                                padding-inline-start:1rem;-webkit-padding-end: 1rem;
-                                                                padding-inline-end:1rem;padding-top: 0.375rem;
-                                                                padding-bottom: 0.375rem;
-                                                                height: 32px;
-                                                                min-width: auto;
-                                                                background: var(--chakra-colors-neutral-600);
-                                                                font-size: var(--chakra-fontSizes-md);
-                                                                color: var(--chakra-colors-neutral-white);
-                                                            }
-
-                                                            .css-3fqh6r:focus-visible,.css-3fqh6r[data-focus-visible] {
-                                                                box-shadow: inset 0 0 0 4px #2C7DF6;
-                                                                border-color: var(--chakra-colors-transparent);
-                                                            }
-
-                                                            .css-3fqh6r:hover,.css-3fqh6r[data-hover] {
-                                                                color: var(--chakra-colors-neutral-200);
-                                                                background: var(--chakra-colors-neutral-black);
-                                                            }
-
-                                                            .css-3fqh6r:hover:disabled,.css-3fqh6r[data-hover]:disabled,.css-3fqh6r:hover[disabled],.css-3fqh6r[data-hover][disabled],.css-3fqh6r:hover[aria-disabled=true],.css-3fqh6r[data-hover][aria-disabled=true],.css-3fqh6r:hover[data-disabled],.css-3fqh6r[data-hover][data-disabled] {
-                                                                background: initial;
-                                                            }
-
-                                                            .css-3fqh6r:active,.css-3fqh6r[data-active] {
-                                                                box-shadow: var(--chakra-shadows-none);
-                                                                color: var(--chakra-colors-neutral-200);
-                                                                background: var(--chakra-colors-neutral-black);
-                                                            }
-
-                                                            .css-3fqh6r:focus,.css-3fqh6r[data-focus] {
-                                                                outline: 2px solid transparent;
-                                                                outline-offset: 2px;
-                                                                box-shadow: var(--chakra-shadows-none);
-                                                            }
-
-                                                            .css-3fqh6r[data-loading],.css-3fqh6r[aria-busy=true] {
-                                                                display: -webkit-inline-box;
-                                                                display: -webkit-inline-flex;
-                                                                display: -ms-inline-flexbox;
-                                                                display: inline-flex;
-                                                                text-overflow: none;
-                                                            }
-
-                                                            .css-3fqh6r:disabled,.css-3fqh6r[disabled],.css-3fqh6r[aria-disabled=true],.css-3fqh6r[data-disabled] {
-                                                                pointer-events: none;
-                                                            }
-                                                        </style>
-                                                        <button type="button" class="chakra-button css-3fqh6r" to="" id="nav-signup"><a href="../SignUp_Login.html">Sign Up</a></button>
-                                                    </li>
+                                                            <button type="button" class="chakra-button css-3fqh6r" to="" id="nav-signup"><a href="../../notLogin/index.html">Log out</a></button>
+                                                        </li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -2410,7 +3017,7 @@
                                         <!-- <li data-testid="vertical-switcher" class="css-1q8j20u-CategoryLinkStyles">
                                             <a data-testid="RouterSwitcherLink" href="/shoes">Shoes</a>
                                         </li> -->
-                                        <li data-testid="vertical-switcher" class="css-1q8j20u-CategoryLinkStyles" style="background-color:lightsteelblue;">
+                                        <li data-testid="vertical-switcher" class="css-1q8j20u-CategoryLinkStyles" style="background-color:#6EA580;">
                                             <a data-testid="RouterSwitcherLink" href="">Apparel</a>
                                         </li>
                                         <!-- <li data-testid="vertical-switcher" class="css-1q8j20u-CategoryLinkStyles">
@@ -3301,7 +3908,7 @@
                                             <li role="listitem" data-component="product-tile" class="css-0">
                                                 <div data-testid="productTile" class="css-10g2fi1">
                                                     <div class="css-unvwxl">
-                                                        <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
+                                                        <button onclick="addToCartFromHeart()" type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
                                                             <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
                                                                 <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
                                                             </svg>
@@ -3340,7 +3947,7 @@
                                             <li role="listitem" data-component="product-tile" class="css-0">
                                                 <div data-testid="productTile" class="css-10g2fi1">
                                                     <div class="css-unvwxl">
-                                                        <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
+                                                        <button onclick="addToCartFromHeart()" type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
                                                             <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
                                                                 <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
                                                             </svg>
@@ -3405,7 +4012,7 @@
                                             <li role="listitem" data-component="product-tile" class="css-0">
                                                 <div data-testid="productTile" class="css-10g2fi1">
                                                     <div class="css-unvwxl">
-                                                        <button type="button" class="chakra-button css-obmws6" aria-label="Follow" data-testid="TriggerFavoriteView">
+                                                        <button onclick="addToCartFromHeart()" type="button" class="chakra-button css-obmws6" aria-label="Follow" data-testid="TriggerFavoriteView">
                                                             <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
                                                                 <path d="M43 18.5C43 13.2 38.7 9 33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 43 19.7 43 18.5Z" fill="currentColor"></path>
                                                             </svg>
@@ -3444,7 +4051,7 @@
                                             <li role="listitem" data-component="product-tile" class="css-0">
                                                 <div data-testid="productTile" class="css-10g2fi1">
                                                     <div class="css-unvwxl">
-                                                        <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
+                                                        <button onclick="addToCartFromHeart()" type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
                                                             <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
                                                                 <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
                                                             </svg>
@@ -3483,7 +4090,7 @@
                                             <li role="listitem" data-component="product-tile" class="css-0">
                                                 <div data-testid="productTile" class="css-10g2fi1">
                                                     <div class="css-unvwxl">
-                                                        <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
+                                                        <button onclick="addToCartFromHeart()" type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
                                                             <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
                                                                 <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
                                                             </svg>
@@ -3522,7 +4129,7 @@
                                             <li role="listitem" data-component="product-tile" class="css-0">
                                                 <div data-testid="productTile" class="css-10g2fi1">
                                                     <div class="css-unvwxl">
-                                                        <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
+                                                        <button onclick="addToCartFromHeart()" type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
                                                             <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
                                                                 <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
                                                             </svg>
@@ -3560,7 +4167,7 @@
                                             <li role="listitem" data-component="product-tile" class="css-0">
                                                 <div data-testid="productTile" class="css-10g2fi1">
                                                     <div class="css-unvwxl">
-                                                        <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
+                                                        <button onclick="addToCartFromHeart()" type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
                                                             <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
                                                                 <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
                                                             </svg>
@@ -3600,7 +4207,7 @@
                                             <li role="listitem" data-component="product-tile" class="css-0">
                                                 <div data-testid="productTile" class="css-10g2fi1">
                                                     <div class="css-unvwxl">
-                                                        <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
+                                                        <button onclick="addToCartFromHeart()" type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
                                                             <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
                                                                 <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
                                                             </svg>
@@ -3746,7 +4353,7 @@
                                         <li role="listitem" data-component="product-tile" class="css-0">
                                             <div data-testid="productTile" class="css-10g2fi1">
                                                 <div class="css-unvwxl">
-                                                    <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
+                                                    <button onclick="addToCartFromHeart()" type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
                                                         <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
                                                             <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
                                                         </svg>
@@ -3785,7 +4392,7 @@
                                         <li role="listitem" data-component="product-tile" class="css-0">
                                             <div data-testid="productTile" class="css-10g2fi1">
                                                 <div class="css-unvwxl">
-                                                    <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
+                                                    <button onclick="addToCartFromHeart()" type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
                                                         <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
                                                             <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
                                                         </svg>
@@ -3824,7 +4431,7 @@
                                         <li role="listitem" data-component="product-tile" class="css-0">
                                             <div data-testid="productTile" class="css-10g2fi1">
                                                 <div class="css-unvwxl">
-                                                    <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
+                                                    <button onclick="addToCartFromHeart()" type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
                                                         <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
                                                             <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
                                                         </svg>
@@ -3863,7 +4470,7 @@
                                         <li role="listitem" data-component="product-tile" class="css-0">
                                             <div data-testid="productTile" class="css-10g2fi1">
                                                 <div class="css-unvwxl">
-                                                    <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
+                                                    <button onclick="addToCartFromHeart()" type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
                                                         <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
                                                             <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
                                                         </svg>
@@ -3902,7 +4509,7 @@
                                         <li role="listitem" data-component="product-tile" class="css-0">
                                             <div data-testid="productTile" class="css-10g2fi1">
                                                 <div class="css-unvwxl">
-                                                    <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
+                                                    <button onclick="addToCartFromHeart()" type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
                                                         <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
                                                             <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
                                                         </svg>
@@ -3941,7 +4548,7 @@
                                         <li role="listitem" data-component="product-tile" class="css-0">
                                             <div data-testid="productTile" class="css-10g2fi1">
                                                 <div class="css-unvwxl">
-                                                    <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
+                                                    <button onclick="addToCartFromHeart()" type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
                                                         <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
                                                             <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
                                                         </svg>
@@ -4015,7 +4622,7 @@
                                         <li role="listitem" data-component="product-tile" class="css-0">
                                             <div data-testid="productTile" class="css-10g2fi1">
                                                 <div class="css-unvwxl">
-                                                    <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
+                                                    <button onclick="addToCartFromHeart()" type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
                                                         <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
                                                             <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
                                                         </svg>
@@ -4054,7 +4661,7 @@
                                         <li role="listitem" data-component="product-tile" class="css-0">
                                             <div data-testid="productTile" class="css-10g2fi1">
                                                 <div class="css-unvwxl">
-                                                    <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
+                                                    <button onclick="addToCartFromHeart()" type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
                                                         <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
                                                             <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
                                                         </svg>
@@ -4093,7 +4700,7 @@
                                         <li role="listitem" data-component="product-tile" class="css-0">
                                             <div data-testid="productTile" class="css-10g2fi1">
                                                 <div class="css-unvwxl">
-                                                    <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
+                                                    <button onclick="addToCartFromHeart()" type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
                                                         <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
                                                             <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
                                                         </svg>
@@ -4132,7 +4739,7 @@
                                         <li role="listitem" data-component="product-tile" class="css-0">
                                             <div data-testid="productTile" class="css-10g2fi1">
                                                 <div class="css-unvwxl">
-                                                    <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
+                                                    <button onclick="addToCartFromHeart()" type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
                                                         <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
                                                             <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
                                                         </svg>
@@ -4171,7 +4778,7 @@
                                         <li role="listitem" data-component="product-tile" class="css-0">
                                             <div data-testid="productTile" class="css-10g2fi1">
                                                 <div class="css-unvwxl">
-                                                    <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
+                                                    <button onclick="addToCartFromHeart()" type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
                                                         <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
                                                             <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
                                                         </svg>
@@ -4210,7 +4817,7 @@
                                         <li role="listitem" data-component="product-tile" class="css-0">
                                             <div data-testid="productTile" class="css-10g2fi1">
                                                 <div class="css-unvwxl">
-                                                    <button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
+                                                    <button onclick="addToCartFromHeart()" type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView">
                                                         <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
                                                             <path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path>
                                                         </svg>
@@ -4270,17 +4877,17 @@
                                 </section>
                             -->
                                 <!-- <section data-testid="HomeSection-PRODUCT_COLLECTION" id="section-product_collection-19" class="css-fa1ghy"><div data-component="ProductRow" class="css-0"><div class="css-1jh33y6"><h2 class="chakra-heading css-lpquvy">Collectibles Staff Picks<button type="button" class="chakra-button css-e1oduz" aria-label="Collectibles Staff Picks" id="popover-trigger-:rv5:" aria-haspopup="dialog" aria-expanded="false" aria-controls="popover-content-:rv5:"><svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-h7imfj" aria-hidden="true"><path d="M25 6C14.5 6 6 14.5 6 25C6 35.5 14.5 44 25 44C35.5 44 44 35.5 44 25C44 14.5 35.5 6 25 6ZM26.4 36.2H22V31.7H26.4V36.2ZM29 25C27 26.1 26.2 26.8 26.2 29V29.2H22.1V28.9C22.1 25.9 23.2 24.6 25.3 23.4C27.2 22.3 28.5 21.3 28.5 19.7C28.5 18.1 26.9 17.1 25.3 17.1C23.1 17.1 21.4 18.3 21.3 21.2H17.2C17.2 16.8 20.7 14 25.3 14C29 14 32.6 15.7 32.6 19.5C32.7 22.3 30.7 24 29 25Z" fill="currentColor"></path></svg></button><div class="chakra-popover__popper css-1qq679y" style="visibility: hidden; position: absolute; min-width: max-content; inset: 0px auto auto 0px;"><section id="popover-content-:rv5:" tabindex="-1" role="tooltip" class="chakra-popover__content css-14xeaw5" aria-describedby="popover-body-:rv5:" style="transform-origin: var(--popper-transform-origin); opacity: 0; visibility: hidden; transform: scale(0.95) translateZ(0px);"><div data-popper-arrow="" class="chakra-popover__arrow-positioner css-0" style="position: absolute;"><div class="chakra-popover__arrow css-5jquy5" data-popper-arrow-inner=""></div></div><div id="popover-body-:rv5:" class="chakra-popover__body css-1sjqp78"><p class="chakra-text css-g9bx1o">'Staff Picks' is a curated collection of our best selling items</p></div></section></div></h2><a data-testid="RouterSwitcherLink" rel="" href="/collectibles"><span class="chakra-button css-1oqi5si" tabindex="-1"><span class="chakra-button__icon css-1hzyiq5"><br></span></span><span class="css-idkz9h"></span></a></div><ul data-component="SmartGridRow" class="css-8pafvs"><li role="listitem" data-component="product-tile" class="css-0"><div data-testid="productTile" class="css-10g2fi1"><div class="css-unvwxl"><button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView"><svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true"><path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path></svg></button></div><a data-testid="productTile-ProductSwitcherLink" href="/mattel-uno-show-em-no-mercy-card-game"><div class="css-1g4yje1"><div class="css-cpsonv"><div class="css-tkc8ar"><img width="140px" height="75px" alt="Mattel UNO Show ‘em No Mercy Card Game" srcset="https://images.stockx.com/images/Mattel-UNO-Show-em-No-Mercy-Card-Game.jpg?fit=fill&amp;bg=FFFFFF&amp;w=140&amp;h=75&amp;fm=avif&amp;auto=compress&amp;dpr=1&amp;trim=color&amp;updated_at=1696273748&amp;q=57 1x,
-https://images.stockx.com/images/Mattel-UNO-Show-em-No-Mercy-Card-Game.jpg?fit=fill&amp;bg=FFFFFF&amp;w=140&amp;h=75&amp;fm=avif&amp;auto=compress&amp;dpr=2&amp;trim=color&amp;updated_at=1696273748&amp;q=60 2x,
+https://images.stockx.com/images/Mattel-UNO-Show-em-No-Mercy-Card-Game.jpg?fit=fill&amp;bg=FFFFFF&amp;w=140&amp;h=75&amp;fm=avif&amp;auto=compress&amp;dpr=2&amp;trim=color&amp;updated_at=1696273748&a onclick="addToCartFromHeart()"mp;q=60 2x,
 https://images.stockx.com/images/Mattel-UNO-Show-em-No-Mercy-Card-Game.jpg?fit=fill&amp;bg=FFFFFF&amp;w=140&amp;h=75&amp;fm=avif&amp;auto=compress&amp;dpr=3&amp;trim=color&amp;updated_at=1696273748&amp;q=41 3x" src="https://images.stockx.com/images/Mattel-UNO-Show-em-No-Mercy-Card-Game.jpg?fit=fill&amp;bg=FFFFFF&amp;w=140&amp;h=75&amp;fm=avif&amp;auto=compress&amp;dpr=2&amp;trim=color&amp;updated_at=1696273748&amp;q=60" class="chakra-image css-kpfxlo" referrerpolicy="origin" aria-hidden="true"></div></div><div class="css-cp13gg"><div class="css-0"><p class="chakra-text css-3lpefb">Mattel UNO Show ‘em No Mercy Card Game</p></div><div class="css-1b6n4o1"><p class="chakra-text css-jsq4f">Lowest Ask</p><div class="css-1i6xaee"><p class="chakra-text css-nsvdd9">$26</p></div></div><div class="css-sxzbru"><span class="css-1qn13q7"><span class="css-1ny2kle">Last Sale:&nbsp;</span><span class="css-1ny2kle">$48</span></span></div></div></div></a></div></li><li role="listitem" data-component="product-tile" class="css-0"><div data-testid="productTile" class="css-10g2fi1"><div class="css-unvwxl"><button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView"><svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true"><path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path></svg></button></div><a data-testid="productTile-ProductSwitcherLink" href="/mattel-barbie-2023-dia-de-muertos-barbie-x-pink-magnolia-doll"><div class="css-1g4yje1"><div class="css-cpsonv"><div class="css-tkc8ar"><img width="140px" height="75px" alt="Mattel Barbie 2023 Dia De Muertos Barbie x Pink Magnolia Doll" srcset="https://images.stockx.com/images/Mattel-Barbie-2023-Dia-De-Muertos-Barbie-x-Pink-Magnolia-Doll.jpg?fit=fill&amp;bg=FFFFFF&amp;w=140&amp;h=75&amp;fm=avif&amp;auto=compress&amp;dpr=1&amp;trim=color&amp;updated_at=1696273745&amp;q=57 1x,
-https://images.stockx.com/images/Mattel-Barbie-2023-Dia-De-Muertos-Barbie-x-Pink-Magnolia-Doll.jpg?fit=fill&amp;bg=FFFFFF&amp;w=140&amp;h=75&amp;fm=avif&amp;auto=compress&amp;dpr=2&amp;trim=color&amp;updated_at=1696273745&amp;q=60 2x,
+https://images.stockx.com/images/Mattel-Barbie-2023-Dia-De-Muertos-Barbie-x-Pink-Magnolia-Doll.jpg?fit=fill&amp;bg=FFFFFF&amp;w=140&amp;h=75&amp;fm=avif&amp;auto=compress&amp;dpr=2&amp;trim=color&amp;updated_at=1696273745&a onclick="addToCartFromHeart()"mp;q=60 2x,
 https://images.stockx.com/images/Mattel-Barbie-2023-Dia-De-Muertos-Barbie-x-Pink-Magnolia-Doll.jpg?fit=fill&amp;bg=FFFFFF&amp;w=140&amp;h=75&amp;fm=avif&amp;auto=compress&amp;dpr=3&amp;trim=color&amp;updated_at=1696273745&amp;q=41 3x" src="https://images.stockx.com/images/Mattel-Barbie-2023-Dia-De-Muertos-Barbie-x-Pink-Magnolia-Doll.jpg?fit=fill&amp;bg=FFFFFF&amp;w=140&amp;h=75&amp;fm=avif&amp;auto=compress&amp;dpr=2&amp;trim=color&amp;updated_at=1696273745&amp;q=60" class="chakra-image css-kpfxlo" referrerpolicy="origin" aria-hidden="true"></div></div><div class="css-cp13gg"><div class="css-0"><p class="chakra-text css-3lpefb">Mattel Barbie 2023 Dia De Muertos Barbie x Pink Magnolia Doll</p></div><div class="css-1b6n4o1"><p class="chakra-text css-jsq4f">Lowest Ask</p><div class="css-1i6xaee"><p class="chakra-text css-nsvdd9">$236</p></div></div><div class="css-sxzbru"><span class="css-1qn13q7"><span class="css-1ny2kle">Last Sale:&nbsp;</span><span class="css-1ny2kle">$226</span></span></div></div></div></a></div></li><li role="listitem" data-component="product-tile" class="css-0"><div data-testid="productTile" class="css-10g2fi1"><div class="css-unvwxl"><button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView"><svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true"><path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path></svg></button></div><a data-testid="productTile-ProductSwitcherLink" href="/pokemon-center-x-van-gogh-museum-pikachu-plush"><div class="css-1g4yje1"><div class="css-cpsonv"><div class="css-tkc8ar"><img width="140px" height="75px" alt="Pokemon Center x Van Gogh Museum: Pikachu Plush" srcset="https://images.stockx.com/images/Pokemon-Center-x-Van-Gogh-Museum-Pikachu-Plush.jpg?fit=fill&amp;bg=FFFFFF&amp;w=140&amp;h=75&amp;fm=avif&amp;auto=compress&amp;dpr=1&amp;trim=color&amp;updated_at=1696273749&amp;q=57 1x,
-https://images.stockx.com/images/Pokemon-Center-x-Van-Gogh-Museum-Pikachu-Plush.jpg?fit=fill&amp;bg=FFFFFF&amp;w=140&amp;h=75&amp;fm=avif&amp;auto=compress&amp;dpr=2&amp;trim=color&amp;updated_at=1696273749&amp;q=60 2x,
+https://images.stockx.com/images/Pokemon-Center-x-Van-Gogh-Museum-Pikachu-Plush.jpg?fit=fill&amp;bg=FFFFFF&amp;w=140&amp;h=75&amp;fm=avif&amp;auto=compress&amp;dpr=2&amp;trim=color&amp;updated_at=1696273749&a onclick="addToCartFromHeart()"mp;q=60 2x,
 https://images.stockx.com/images/Pokemon-Center-x-Van-Gogh-Museum-Pikachu-Plush.jpg?fit=fill&amp;bg=FFFFFF&amp;w=140&amp;h=75&amp;fm=avif&amp;auto=compress&amp;dpr=3&amp;trim=color&amp;updated_at=1696273749&amp;q=41 3x" src="https://images.stockx.com/images/Pokemon-Center-x-Van-Gogh-Museum-Pikachu-Plush.jpg?fit=fill&amp;bg=FFFFFF&amp;w=140&amp;h=75&amp;fm=avif&amp;auto=compress&amp;dpr=2&amp;trim=color&amp;updated_at=1696273749&amp;q=60" class="chakra-image css-kpfxlo" referrerpolicy="origin" aria-hidden="true"></div></div><div class="css-cp13gg"><div class="css-0"><p class="chakra-text css-3lpefb">Pokemon Center x Van Gogh Museum: Pikachu Plush</p></div><div class="css-1b6n4o1"><p class="chakra-text css-jsq4f">Lowest Ask</p><div class="css-1i6xaee"><p class="chakra-text css-nsvdd9">$45</p></div></div><div class="css-sxzbru"><span class="css-1qn13q7"><span class="css-1ny2kle">Last Sale:&nbsp;</span><span class="css-1ny2kle">$46</span></span></div></div></div></a></div></li><li role="listitem" data-component="product-tile" class="css-0"><div data-testid="productTile" class="css-10g2fi1"><div class="css-unvwxl"><button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView"><svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true"><path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path></svg></button></div><a data-testid="productTile-ProductSwitcherLink" href="/lego-star-wars-venator-class-republic-attack-cruiser-set-75367"><div class="css-1g4yje1"><div class="css-cpsonv"><div class="css-tkc8ar"><img width="140px" height="75px" alt="LEGO Star Wars Venator-Class Republic Attack Cruiser Set 75367" srcset="https://images.stockx.com/images/LEGO-Star-Wars-Venator-Class-Republic-Attack-Cruiser-Set-75367.jpg?fit=fill&amp;bg=FFFFFF&amp;w=140&amp;h=75&amp;fm=avif&amp;auto=compress&amp;dpr=1&amp;trim=color&amp;updated_at=1695215978&amp;q=57 1x,
-https://images.stockx.com/images/LEGO-Star-Wars-Venator-Class-Republic-Attack-Cruiser-Set-75367.jpg?fit=fill&amp;bg=FFFFFF&amp;w=140&amp;h=75&amp;fm=avif&amp;auto=compress&amp;dpr=2&amp;trim=color&amp;updated_at=1695215978&amp;q=60 2x,
+https://images.stockx.com/images/LEGO-Star-Wars-Venator-Class-Republic-Attack-Cruiser-Set-75367.jpg?fit=fill&amp;bg=FFFFFF&amp;w=140&amp;h=75&amp;fm=avif&amp;auto=compress&amp;dpr=2&amp;trim=color&amp;updated_at=1695215978&a onclick="addToCartFromHeart()"mp;q=60 2x,
 https://images.stockx.com/images/LEGO-Star-Wars-Venator-Class-Republic-Attack-Cruiser-Set-75367.jpg?fit=fill&amp;bg=FFFFFF&amp;w=140&amp;h=75&amp;fm=avif&amp;auto=compress&amp;dpr=3&amp;trim=color&amp;updated_at=1695215978&amp;q=41 3x" src="https://images.stockx.com/images/LEGO-Star-Wars-Venator-Class-Republic-Attack-Cruiser-Set-75367.jpg?fit=fill&amp;bg=FFFFFF&amp;w=140&amp;h=75&amp;fm=avif&amp;auto=compress&amp;dpr=2&amp;trim=color&amp;updated_at=1695215978&amp;q=60" class="chakra-image css-kpfxlo" referrerpolicy="origin" aria-hidden="true"></div></div><div class="css-cp13gg"><div class="css-0"><p class="chakra-text css-3lpefb">LEGO Star Wars Venator-Class Republic Attack Cruiser Set 75367</p></div><div class="css-1b6n4o1"><p class="chakra-text css-jsq4f">Lowest Ask</p><div class="css-1i6xaee"><p class="chakra-text css-nsvdd9">$611</p></div></div><div class="css-sxzbru"><span class="css-1qn13q7"><span class="css-1ny2kle">Last Sale:&nbsp;</span><span class="css-1ny2kle">$540</span></span></div></div></div></a></div></li><li role="listitem" data-component="product-tile" class="css-0"><div data-testid="productTile" class="css-10g2fi1"><div class="css-unvwxl"><button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView"><svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true"><path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path></svg></button></div><a data-testid="productTile-ProductSwitcherLink" href="/phaidon-kaws-dan-nadel-thomas-crow-clare-lilley-jason-schmidt-book-signed"><div class="css-1g4yje1"><div class="css-cpsonv"><div class="css-tkc8ar"><img width="140px" height="75px" alt="KAWS Phaidon Uniqlo Book (Signed Version)" srcset="https://images.stockx.com/images/Phaidon-KAWS-Dan-Nadel-Thomas-Crow-Clare-Lilley-Jason-Schmidt-Book-Signed.jpg?fit=fill&amp;bg=FFFFFF&amp;w=140&amp;h=75&amp;fm=avif&amp;auto=compress&amp;dpr=1&amp;trim=color&amp;updated_at=1692979344&amp;q=57 1x,
-https://images.stockx.com/images/Phaidon-KAWS-Dan-Nadel-Thomas-Crow-Clare-Lilley-Jason-Schmidt-Book-Signed.jpg?fit=fill&amp;bg=FFFFFF&amp;w=140&amp;h=75&amp;fm=avif&amp;auto=compress&amp;dpr=2&amp;trim=color&amp;updated_at=1692979344&amp;q=60 2x,
+https://images.stockx.com/images/Phaidon-KAWS-Dan-Nadel-Thomas-Crow-Clare-Lilley-Jason-Schmidt-Book-Signed.jpg?fit=fill&amp;bg=FFFFFF&amp;w=140&amp;h=75&amp;fm=avif&amp;auto=compress&amp;dpr=2&amp;trim=color&amp;updated_at=1692979344&a onclick="addToCartFromHeart()"mp;q=60 2x,
 https://images.stockx.com/images/Phaidon-KAWS-Dan-Nadel-Thomas-Crow-Clare-Lilley-Jason-Schmidt-Book-Signed.jpg?fit=fill&amp;bg=FFFFFF&amp;w=140&amp;h=75&amp;fm=avif&amp;auto=compress&amp;dpr=3&amp;trim=color&amp;updated_at=1692979344&amp;q=41 3x" src="https://images.stockx.com/images/Phaidon-KAWS-Dan-Nadel-Thomas-Crow-Clare-Lilley-Jason-Schmidt-Book-Signed.jpg?fit=fill&amp;bg=FFFFFF&amp;w=140&amp;h=75&amp;fm=avif&amp;auto=compress&amp;dpr=2&amp;trim=color&amp;updated_at=1692979344&amp;q=60" class="chakra-image css-kpfxlo" referrerpolicy="origin" aria-hidden="true"></div></div><div class="css-cp13gg"><div class="css-0"><p class="chakra-text css-3lpefb">KAWS Phaidon Uniqlo Book (Signed Version)</p></div><div class="css-1b6n4o1"><p class="chakra-text css-jsq4f">Lowest Ask</p><div class="css-1i6xaee"><p class="chakra-text css-nsvdd9">$97</p></div></div><div class="css-sxzbru"><span class="css-1qn13q7"><span class="css-1ny2kle">Last Sale:&nbsp;</span><span class="css-1ny2kle">$112</span></span></div></div></div></a></div></li><li role="listitem" data-component="product-tile" class="css-0"><div data-testid="productTile" class="css-10g2fi1"><div class="css-unvwxl"><button type="button" class="chakra-button css-14xjolk" aria-label="Follow" data-testid="TriggerFavoriteView"><svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true"><path d="M33.5 11.3C37.5 11.3 40.8 14.6 40.8 18.6C40.8 19.5 40.6 20.4 40.3 21.2L39.9 22C38.1 25.6 30.5 33.1 25 38C19.5 33.1 11.9 25.7 10.1 22L9.7 21.1C9.4 20.3 9.2 19.4 9.2 18.5C9.2 14.5 12.5 11.2 16.5 11.2C18.9 11.2 21 12.7 23.1 15.9L25 18.8L26.9 16C29 12.9 31.2 11.3 33.5 11.3ZM33.5 9C29.8 9 27 11.8 25 14.7C23 11.6 20.2 9 16.5 9C11.3 9 7 13.3 7 18.5C7 19.7 7.2 20.8 7.6 21.9C9.3 27.5 25 41 25 41C25 41 40.7 27.5 42.3 22C42.7 20.9 42.9 19.8 42.9 18.6C43 13.3 38.7 9 33.5 9Z" fill="currentColor"></path></svg></button></div><a data-testid="productTile-ProductSwitcherLink" href="/pokemon-santa-cruz-skateboard-deck-blind-bag"><div class="css-1g4yje1"><div class="css-cpsonv"><div class="css-tkc8ar"><img width="140px" height="75px" alt="Pokemon Santa Cruz Skateboard Deck Blind Bag" srcset="https://images.stockx.com/images/Pokemon-Santa-Cruz-Skateboard-Deck-Blind-Bag.jpg?fit=fill&amp;bg=FFFFFF&amp;w=140&amp;h=75&amp;fm=avif&amp;auto=compress&amp;dpr=1&amp;trim=color&amp;updated_at=1694742323&amp;q=57 1x,
-https://images.stockx.com/images/Pokemon-Santa-Cruz-Skateboard-Deck-Blind-Bag.jpg?fit=fill&amp;bg=FFFFFF&amp;w=140&amp;h=75&amp;fm=avif&amp;auto=compress&amp;dpr=2&amp;trim=color&amp;updated_at=1694742323&amp;q=60 2x,
+https://images.stockx.com/images/Pokemon-Santa-Cruz-Skateboard-Deck-Blind-Bag.jpg?fit=fill&amp;bg=FFFFFF&amp;w=140&amp;h=75&amp;fm=avif&amp;auto=compress&amp;dpr=2&amp;trim=color&amp;updated_at=1694742323&a onclick="addToCartFromHeart()"mp;q=60 2x,
 https://images.stockx.com/images/Pokemon-Santa-Cruz-Skateboard-Deck-Blind-Bag.jpg?fit=fill&amp;bg=FFFFFF&amp;w=140&amp;h=75&amp;fm=avif&amp;auto=compress&amp;dpr=3&amp;trim=color&amp;updated_at=1694742323&amp;q=41 3x" src="https://images.stockx.com/images/Pokemon-Santa-Cruz-Skateboard-Deck-Blind-Bag.jpg?fit=fill&amp;bg=FFFFFF&amp;w=140&amp;h=75&amp;fm=avif&amp;auto=compress&amp;dpr=2&amp;trim=color&amp;updated_at=1694742323&amp;q=60" class="chakra-image css-kpfxlo" referrerpolicy="origin" aria-hidden="true"></div></div><div class="css-cp13gg"><div class="css-0"><p class="chakra-text css-3lpefb">Pokemon Santa Cruz Skateboard Deck Blind Bag</p></div><div class="css-1b6n4o1"><p class="chakra-text css-jsq4f">Lowest Ask</p><div class="css-1i6xaee"><p class="chakra-text css-nsvdd9">$353</p></div></div><div class="css-sxzbru"><span class="css-1qn13q7"><span class="css-1ny2kle">Last Sale:&nbsp;</span><span class="css-1ny2kle">$431</span></span></div></div></div></a></div></li></ul></div></section> -->
                                 
                                 <!-- <section data-testid="HomeSection-VALUE_PROPS" id="section-value_props-20" class="css-fa1ghy">
@@ -4749,5 +5356,14 @@ https://images.stockx.com/images/Pokemon-Santa-Cruz-Skateboard-Deck-Blind-Bag.jp
     margin-inline-end: 0px;
     }
 
+    /* .css-1q8j20u-CategoryLinkStyles:hover {
+        background-color: #4FC58C;
+    }
+    .css-1q8j20u-CategoryLinkStyles:active {
+        background-color: #6EA580;
+    }
 
+    .css-1g4yje1:hover {
+        border: 1px solid #1D8751;
+    } */
 </style>
