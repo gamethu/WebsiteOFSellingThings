@@ -2760,8 +2760,93 @@ https://images.stockx.com/360/Air-Jordan-1-Retro-Low-Golf-Travis-Scott-Neutral-O
                                                             <!-- </button> -->
                                                         </span>
                                                     </li>
-                                                    <li
-                                                        role="presentation" data-testid="navbar-menu-myaccount"><a aria-label="My Account" href="/profile"><svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-1qub7gy"><path d="M25 26.6999C19.8 26.6999 15.6 22.4999 15.6 17.2999C15.6 12.0999 19.8 7.8999 25 7.8999C30.2 7.8999 34.4 12.0999 34.4 17.2999C34.4 22.4999 30.2 26.6999 25 26.6999ZM25 10.0999C21.1 10.0999 17.8 13.2999 17.8 17.2999C17.8 21.2999 21 24.4999 25 24.4999C29 24.4999 32.2 21.2999 32.2 17.2999C32.2 13.2999 28.9 10.0999 25 10.0999Z" fill="currentColor"></path><path d="M41.4 42.1998C39.6 34.6998 32.8 29.2998 25 29.2998C17.3 29.2998 10.4 34.6998 8.59998 42.1998H10.9C12.6 35.9998 18.4 31.4998 24.9 31.4998C31.4 31.4998 37.2 35.9998 38.9 42.1998H41.4Z" fill="currentColor"></path></svg></a></li>
+                                                    <li role="presentation" data-testid="navbar-menu-myaccount">
+                                                        <script>
+                                                            // Khi người dùng nhấn vào nút, chuyển đổi giữa việc ẩn và hiện nội dung dropdown
+                                                            function showinfor() {
+                                                                var dropdown = document.getElementById("infor");
+                                                                // dropdown.classList.toggle("show");
+                                                                if (dropdown.classList.contains('show')) {
+                                                                    dropdown.classList.remove('show');
+                                                                }
+                                                                else dropdown.classList.add('show');
+                                                            }
+                                                        
+                                                            // Đóng dropdown nếu người dùng nhấp chuột ngoài dropdown
+                                                            window.onclick = function(event) {
+                                                                var dropdowns = document.getElementsByClassName("dropdown-content");
+                                                                var i;
+                                                                for (i = 0; i < dropdowns.length; i++) {
+                                                                    var openDropdown = dropdowns[i];
+                                                                    if (openDropdown.classList.contains('show')) {
+                                                                        if (!event.target.closest('.dropbtn') && !event.target.closest('.dropdown-content')) {
+                                                                            openDropdown.classList.remove('show');
+                                                                        }
+                                                                    }
+                                                                }
+                                                            };
+                                                        </script>
+                                                        <button onclick="showinfor()" class="dropbtn css-y49ygn">
+                                                            <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-1qub7gy">
+                                                                <path d="M25 26.6999C19.8 26.6999 15.6 22.4999 15.6 17.2999C15.6 12.0999 19.8 7.8999 25 7.8999C30.2 7.8999 34.4 12.0999 34.4 17.2999C34.4 22.4999 30.2 26.6999 25 26.6999ZM25 10.0999C21.1 10.0999 17.8 13.2999 17.8 17.2999C17.8 21.2999 21 24.4999 25 24.4999C29 24.4999 32.2 21.2999 32.2 17.2999C32.2 13.2999 28.9 10.0999 25 10.0999Z" fill="currentColor"></path>
+                                                                <path d="M41.4 42.1998C39.6 34.6998 32.8 29.2998 25 29.2998C17.3 29.2998 10.4 34.6998 8.59998 42.1998H10.9C12.6 35.9998 18.4 31.4998 24.9 31.4998C31.4 31.4998 37.2 35.9998 38.9 42.1998H41.4Z" fill="currentColor"></path>
+                                                            </svg>
+                                                        </button>
+                                                        <div id="infor" data-testid="profile-settings" class="dropdown-content">
+                                                            <div class="css-0">
+                                                                <h2 class="chakra-heading css-y49ygn">Name</h2>
+                                                                <p class="chakra-text css-4g4f6p">Đại Nguyễn</p><br>
+                                                            </div>
+                                                            <div class="css-0">
+                                                                <h2 class="chakra-heading css-y49ygn">Shoe Size</h2>
+                                                                <p class="chakra-text css-4g4f6p">25cm</p><br>
+                                                            </div>
+                                                            <div class="css-0">
+                                                                <h2 class="chakra-heading css-y49ygn">Email Address</h2>
+                                                                <p class="chakra-text email-address css-4g4f6p">tandai6639@gmail.com</p><br>
+                                                            </div>
+                                                            <div class="css-0">
+                                                                <h2 class="chakra-heading css-y49ygn">Username</h2>
+                                                                <p class="chakra-text css-4g4f6p">hiddenbird9131595047187691</p>
+                                                            </div>
+                                                        </div>
+                                                        <style>
+                                                            .css-y49ygn {
+                                                                font-family: var(--chakra-fonts-suisseIntlMedium);
+                                                                font-weight: 500;
+                                                                font-size: var(--chakra-fontSizes-lg);
+                                                                line-height: var(--chakra-lineHeights-lg);
+                                                                margin-bottom: var(--chakra-space-1);
+                                                            }
+                                                        
+                                                            .dropbtn {
+                                                                background-color: #3498DB;
+                                                                color: white;
+                                                                padding: 16px;
+                                                                font-size: 16px;
+                                                                border: none;
+                                                                cursor: pointer;
+                                                            }
+                                                        
+                                                            .dropbtn:hover, .dropbtn:focus {
+                                                                background-color: #2980B9;
+                                                            }
+                                                        
+                                                            .dropdown-content {
+                                                                display: none;
+                                                                position: absolute;
+                                                                background-color: #f1f1f1;
+                                                                min-width: 160px;
+                                                                overflow: auto;
+                                                                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                                                                z-index: 1;
+                                                                left: -100px;
+                                                                padding: 13px;
+                                                            }
+                                                        
+                                                            .show {display: block;}
+                                                        </style>
+                                                    </li>
                                                         <li style="list-style-type:none">
                                                             <style data-emotion="css 3fqh6r">
                                                                 .css-3fqh6r {
@@ -4397,7 +4482,33 @@ https://images.stockx.com/360/Air-Jordan-1-Retro-Low-Golf-Travis-Scott-Neutral-O
                                         }
                                     }
                                 </style>
-                                <section data-component="ProductDetails" class="css-12w3meh"><hr aria-orientation="horizontal" class="chakra-divider css-1dkcwch"><h3 class="chakra-text css-yekqc">Product Details</h3><div data-component="ProductDetails" class="css-0"><div data-component="MobileProductDetails" class="css-0"></div><div data-component="TabletAndDesktopProductDetails" class="css-0"><div class="css-jl5b6d"><div class="css-1upqqtt"><div data-component="ProductTraits" class="css-8uhblx"><div data-component="product-trait" class="css-1ufjsin"><span class="chakra-text css-1px41cy">Retail Price</span><p class="chakra-text css-wgsjnl">$25</p></div><div data-component="product-trait" class="css-1ufjsin"><span class="chakra-text css-1px41cy">Dimensions</span><p class="chakra-text css-wgsjnl">7 3/4 IN</p></div></div></div></div></div></div></section>
+                                <section data-component="ProductDetails" class="css-12w3meh">
+                                    <hr aria-orientation="horizontal" class="chakra-divider css-1dkcwch">
+                                    <h3 class="chakra-text css-yekqc">Product Details</h3>
+                                    <div data-component="ProductDetails" class="css-0">
+                                        <div data-component="MobileProductDetails" class="css-0"></div>
+                                        <div data-component="TabletAndDesktopProductDetails" class="css-0">
+                                            <div class="css-jl5b6d">
+                                                <div class="css-1upqqtt">
+                                                    <div data-component="ProductTraits" class="css-8uhblx">
+                                                        <div data-component="product-trait" class="css-1ufjsin">
+                                                            <span class="chakra-text css-1px41cy">Release Date</span>
+                                                            <p class="chakra-text css-wgsjnl">09/07/2023</p>
+                                                        </div>
+                                                        <div data-component="product-trait" class="css-1ufjsin">
+                                                            <span class="chakra-text css-1px41cy">Retail Price</span>
+                                                            <p class="chakra-text css-wgsjnl">$25</p>
+                                                        </div>
+                                                        <!-- <div data-component="product-trait" class="css-1ufjsin">
+                                                            <span class="chakra-text css-1px41cy">Dimensions</span>
+                                                            <p class="chakra-text css-wgsjnl">7 3/4 IN</p>
+                                                        </div> -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
                                 <!-- <section class="css-12w3meh">
                                     <hr aria-orientation="horizontal" class="chakra-divider css-1dkcwch"/>
                                     <style data-emotion="css 1dqgrkb">

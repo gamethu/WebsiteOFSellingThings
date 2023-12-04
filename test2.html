@@ -1,334 +1,83 @@
-<div data-component="SearchBoxSite" class="css-s7f6zf-SearchInputWrapper">
-    <style data-emotion="css 6anls7">
-        .css-6anls7 [type="search"]::-webkit-search-cancel-button,.css-6anls7 [type="search"]::-webkit-search-decoration {
-            -webkit-appearance: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            -ms-appearance: none;
-            appearance: none;
-        }
-    </style>
-    <style data-emotion="css 16lc16k">
-        .css-16lc16k {
-            width: 100%;
-            display: -webkit-box;
-            display: -webkit-flex;
-            display: -ms-flexbox;
-            display: flex;
-            position: relative;
-            isolation: isolate;
-            --input-font-size: var(--chakra-fontSizes-md);
-            --input-padding: var(--chakra-space-4);
-            --input-border-radius: var(--chakra-radii-md);
-            --input-height: var(--chakra-sizes-10);
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .dropbtn {
+          background-color: #3498DB;
+          color: white;
+          padding: 16px;
+          font-size: 16px;
+          border: none;
+          cursor: pointer;
         }
 
-        .css-16lc16k [type="search"]::-webkit-search-cancel-button,.css-16lc16k [type="search"]::-webkit-search-decoration {
-            -webkit-appearance: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            -ms-appearance: none;
-            appearance: none;
+        .dropbtn:hover, .dropbtn:focus {
+          background-color: #2980B9;
         }
-    </style>
-    <div class="chakra-input__group css-16lc16k" data-group="true" data-component="SearchInput" data-testid="search-input">
-        <style data-emotion="css 1gm3b0k">
-            .css-1gm3b0k {
-                left: 0;
-                width: 3rem;
-                height: 3rem;
-                font-size: var(--chakra-fontSizes-lg);
-                display: -webkit-box;
-                display: -webkit-flex;
-                display: -ms-flexbox;
-                display: flex;
-                -webkit-align-items: center;
-                -webkit-box-align: center;
-                -ms-flex-align: center;
-                align-items: center;
-                -webkit-box-pack: center;
-                -ms-flex-pack: center;
-                -webkit-justify-content: center;
-                justify-content: center;
-                position: absolute;
-                top: 0px;
-                z-index: 2;
-            }
-        </style>
-        <div class="chakra-input__left-element css-1gm3b0k">
-            <style data-emotion="css onkibi">
-                .css-onkibi {
-                    width: 1em;
-                    height: 1em;
-                    display: inline-block;
-                    line-height: 1em;
-                    -webkit-flex-shrink: 0;
-                    -ms-flex-negative: 0;
-                    flex-shrink: 0;
-                    color: currentColor;
-                    vertical-align: middle;
-                }
-            </style>
-            <svg viewBox="0 0 50 50" focusable="false" class="chakra-icon css-onkibi">
-                <path fill="currentColor" d="M33.8 31.5L32.5 31.6C34.9 29 36.4 25.5 36.4 21.7C36.4 13.7 29.9 7.10001 21.8 7.10001C13.7 7.10001 7.3 13.7 7.3 21.7C7.3 29.7 13.8 36.3 21.9 36.3C25.6 36.3 29 34.9 31.5 32.6L31.4 34L40.3 42.9L42.7 40.5L33.8 31.5ZM21.9 33.3C15.5 33.3 10.3 28.1 10.3 21.7C10.3 15.3 15.5 10.1 21.9 10.1C28.3 10.1 33.5 15.3 33.5 21.7C33.5 28.1 28.2 33.3 21.9 33.3Z"></path>
-            </svg>
-        </div>
-        <style data-emotion="css xpvaq1">
-            .css-xpvaq1 {
-                width: 100%;
-                height: 3rem;
-                font-size: var(--chakra-fontSizes-lg);
-                -webkit-padding-start: 3rem;
-                padding-inline-start:3rem;-webkit-padding-end: var(--input-padding);
-                padding-inline-end:var(--input-padding);min-width: 0px;
-                outline: 2px solid transparent;
-                outline-offset: 2px;
-                position: relative;
-                -webkit-appearance: none;
-                -moz-appearance: none;
-                -ms-appearance: none;
-                appearance: none;
-                transition-property: var(--chakra-transition-property-common);
-                transition-duration: var(--chakra-transition-duration-normal);
-                --input-font-size: var(--chakra-fontSizes-md);
-                --input-padding: var(--chakra-space-4);
-                --input-border-radius: var(--chakra-radii-md);
-                --input-height: var(--chakra-sizes-10);
-                border: 1px solid;
-                border-color: var(--chakra-colors-neutral-400);
-                background: inherit;
-                border-radius: 0px;
-            }
-    
-            .css-xpvaq1:disabled,.css-xpvaq1[disabled],.css-xpvaq1[aria-disabled=true],.css-xpvaq1[data-disabled] {
-                opacity: 0.4;
-                cursor: not-allowed;
-                background: var(--chakra-colors-neutral-200);
-            }
-    
-            .css-xpvaq1:hover,.css-xpvaq1[data-hover] {
-                border-color: var(--chakra-colors-neutral-500);
-            }
-    
-            .css-xpvaq1[aria-readonly=true],.css-xpvaq1[readonly],.css-xpvaq1[data-readonly] {
-                box-shadow: var(--chakra-shadows-none)!important;
-                -webkit-user-select: all;
-                -moz-user-select: all;
-                -ms-user-select: all;
-                user-select: all;
-            }
-    
-            .css-xpvaq1[aria-invalid=true],.css-xpvaq1[data-invalid] {
-                border-color: #DA2C16;
-                box-shadow: 0 0 0 1px #DA2C16;
-            }
-    
-            .css-xpvaq1:focus-visible,.css-xpvaq1[data-focus-visible] {
-                z-index: 1;
-                border-color: #3182ce;
-                box-shadow: 0 0 0 1px #3182ce;
-            }
-    
-            .css-xpvaq1:focus,.css-xpvaq1[data-focus] {
-                border-color: var(--chakra-colors-neutral-black);
-                box-shadow: 0px 0px 0px 3px rgba(0, 0, 0, 0.1);
-            }
-        </style>
-    
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.4/nouislider.min.css" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.4/nouislider.min.js"></script>
-        <style>
-            .range-slider {
-                width: 80%;
-                margin: 50px auto;
-            }
-    
-            .range-values {
-                display: flex;
-                justify-content: space-between;
-                margin-top: 10px;
-            }
-    
-            .range-values span {
-                width: 48%;
-                text-align: center;
-            }
-    
-            /* Optional: Style for better visibility */
-            label {
-                font-size: 18px;
-            }
-        </style>
-    
-        <style>
-            .dropbtn {
-              background-color: #04AA6D;
-              color: white;
-              padding: 16px;
-              font-size: 16px;
-              border: none;
-              cursor: pointer;
-            }
-            
-            .dropbtn:hover, .dropbtn:focus {
-              background-color: #3e8e41;
-            }
-            
-            #myInput {
-              box-sizing: border-box;
-              background-image: url('searchicon.png');
-              background-position: 14px 12px;
-              background-repeat: no-repeat;
-              font-size: 16px;
-              padding: 14px 20px 12px 45px;
-              border: none;
-              border-bottom: 1px solid #ddd;
-            }
-            
-            #myInput:focus {outline: 3px solid #ddd;}
-            
-            .dropdown {
-              position: relative;
-              display: inline-block;
-            }
-            
-            .dropdown-content {
-              display: none;
-              position: absolute;
-              background-color: #f6f6f6;
-              /* min-width: 230px; */
-              min-width: 100%;
-              overflow: auto;
-              border: 1px solid #ddd;
-              z-index: 1;
-            }
-            
-            .dropdown-content button {
-              color: black;
-              padding: 12px 16px;
-              text-decoration: none;
-              display: inline-block;
-              margin-top: 50px;
-              margin-left: 20px;
-              margin-right: 20px;
-            }
-            
-            .dropdown a:hover {background-color: #ddd;}
-            
-            .show {display: block;}
 
-            #myDropdown {
-                margin-top: 2.7em;
-            }
-        </style>
-    
-        <input onfocus="myFunction()" onkeydown="handleKeyDown(event)" type="search" name="q" placeholder="Search for brand, color, etc." autoComplete="off" spellcheck="false" autoCorrect="off" autoCapitalize="off" data-testid="site-search" title="Search..." aria-label="Search..." id="site-search" class="chakra-input css-xpvaq1" value=""/>
-        <div id="myDropdown" class="dropdown-content">
-            <div class="range-slider" style="text-align: center;">
-                <label for="priceRange">Price Range</label><br><br>
-                <div id="priceRange"></div>
-                <div class="range-values">
-                    <span id="value1">$0</span>
-                    <span id="value2">$2,000</span>
-                </div>
-                <button onclick="selectButton('Sneakers')"><b><bigger>Sneakers</bigger></b></button>
-                <button onclick="selectButton('Apparel')"><b><bigger>Apparel</bigger></b></button>
-                <button onclick="selectButton('Accessories')"><b><bigger>Accessories</bigger></b></button>
-                <button onclick="selectButton('Collectibles')"><b><bigger>Collectibles</bigger></b></button>
-            </div>
-        </div>
+        .dropdown {
+          position: relative;
+          display: inline-block;
+        }
+
+        .dropdown-content {
+          display: none;
+          position: absolute;
+          background-color: #f1f1f1;
+          min-width: 160px;
+          overflow: auto;
+          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+          z-index: 1;
+        }
+
+        .dropdown-content a {
+          color: black;
+          padding: 12px 16px;
+          text-decoration: none;
+          display: block;
+        }
+
+        .dropdown a:hover {background-color: #ddd;}
+
+        .show {display: block;}
+    </style>
+    </head>
+    <body style="background-color:white;">
+
+        <h2>Clickable Dropdown</h2>
+        <p>Click on the button to open the dropdown menu.</p>
         
+        <div class="dropdown">
+          <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+          <div id="myDropdown" class="dropdown-content">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </div>
+    
         <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                var searchInput = document.getElementById("site-search");
-                var dropdown = document.getElementById("myDropdown");
+        /* When the user clicks on the button, 
+        toggle between hiding and showing the dropdown content */
+        function myFunction() {
+          document.getElementById("myDropdown").classList.toggle("show");
+        }
     
-                // Thêm sự kiện mousedown cho cả input và dropdown
-                document.addEventListener('mousedown', function (event) {
-                    if (event.target === searchInput || event.target.closest("#myDropdown")) {
-                        // Click vào input hoặc dropdown, không tắt dropdown
-                        dropdown.classList.add("show");
-                    } else {
-                        // Click ra ngoài khu vực, tắt dropdown
-                        dropdown.classList.remove("show");
-                    }
-                });
-            
-                // Thêm sự kiện keydown cho input
-                searchInput.addEventListener('keydown', function (event) {
-                    handleKeyDown(event);
-                });
-            });
-    
-            function selectButton(value) {
-                var searchInput = document.getElementById("site-search");
-                var dropdown = document.getElementById("myDropdown");
-    
-                // Nếu giá trị hiện tại của thanh input là giống với giá trị của button được nhấn,
-                // thì xóa giá trị của thanh input, ngược lại, cập nhật giá trị của thanh input
-                if (searchInput.value === value) {
-                    searchInput.value = '';
-                } else {
-                    searchInput.value = value;
-                }
-    
-                // Đóng dropdown
-                // dropdown.classList.remove("show");
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+          if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+              var openDropdown = dropdowns[i];
+              if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+              }
             }
-    
-            function handleKeyDown(event) {
-                var searchInput = document.getElementById("site-search");
-                var dropdown = document.getElementById("myDropdown");
-    
-                // Kiểm tra nếu phím nhấn là Enter và có một lựa chọn được chọn
-                if (event.key === 'Enter' && searchInput.value) {
-                    // Chuyển hướng đến đường link tương ứng
-                    switch (searchInput.value.toLowerCase()) {
-                        case 'sneakers':
-                            window.location.href = '../Shopping_List/Sneaker.html';
-                            break;
-                        case 'apparel':
-                            window.location.href = '../Shopping_List/Apparel.html';
-                            break;
-                        case 'accessories':
-                            window.location.href = '../Shopping_List/Accessories.html';
-                            break;
-                        case 'collectibles':
-                            window.location.href = '../Shopping_List/Collectibles.html';
-                            break;
-                        default:
-                            window.location.href = '../Shopping_List/Sneaker.html';
-                            break;
-                    }
-                }
-            }
+          }
+        }
         </script>
-        <script>
-            const priceRange = document.getElementById('priceRange');
-            const value1 = document.getElementById('value1');
-            const value2 = document.getElementById('value2');
-    
-            noUiSlider.create(priceRange, {
-                start: [0, 2000],
-                connect: true,
-                range: {
-                    'min': 0,
-                    'max': 2000
-                },
-                step: 1
-            });
-    
-            priceRange.noUiSlider.on('update', function (values, handle) {
-                const val = values[handle];
-                if (handle === 0) {
-                    value1.textContent = `$${val}`;
-                } else {
-                    value2.textContent = `$${val}`;
-                }
-            });
-        </script>
-    </div>
-    
-    
-<span></span>
-</div>
+
+    </body>
+</html>
