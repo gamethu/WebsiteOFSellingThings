@@ -2203,9 +2203,15 @@ https://images.stockx.com/360/Air-Jordan-1-Retro-Low-Golf-Travis-Scott-Neutral-O
                                                                 }
                             
                                                                 function minus(id, priceId) {
+                                                                    // Cập nhật hiển thị số lượng trên span
+                                                                    let favoritesCountSpan = document.getElementById("mySpan");
+                                                                    let currentCount = parseInt(favoritesCountSpan.innerHTML, 10);
+                                                                    let newCount = currentCount - 1;
+                                                                    favoritesCountSpan.innerHTML = newCount;
+                                                                                            
                                                                     let Span = document.getElementById(id);
                                                                     let priceSpan = document.getElementById(priceId);
-                            
+
                                                                     if (!Span || !priceSpan) {
                                                                         return;
                                                                     }
@@ -2227,8 +2233,14 @@ https://images.stockx.com/360/Air-Jordan-1-Retro-Low-Golf-Travis-Scott-Neutral-O
                                                                         }
                                                                     }
                                                                 }
-                            
+
                                                                 function incre(id, priceId) {
+                                                                    // Cập nhật hiển thị số lượng trên span
+                                                                    let favoritesCountSpan = document.getElementById("mySpan");
+                                                                    let currentCount = parseInt(favoritesCountSpan.innerHTML, 10);
+                                                                    let newCount = currentCount + 1;
+                                                                    favoritesCountSpan.innerHTML = newCount;
+
                                                                     let Span = document.getElementById(id);
                                                                     let priceSpan = document.getElementById(priceId);
                                                                                                 
