@@ -1661,7 +1661,7 @@
                                                                       display: inline-block;
                                                                     }
                                                                     
-                                                                    .dropdown-content {
+                                                                    .dropdown-content1 {
                                                                       display: none;
                                                                       position: absolute;
                                                                       background-color: #f6f6f6;
@@ -1670,9 +1670,10 @@
                                                                       overflow: auto;
                                                                       border: 1px solid #ddd;
                                                                       z-index: 1;
+                                                                      top: 40px;
                                                                     }
                                                                     
-                                                                    .dropdown-content button {
+                                                                    .dropdown-content1 button {
                                                                       color: black;
                                                                       padding: 12px 16px;
                                                                       text-decoration: none;
@@ -1685,14 +1686,14 @@
                                                                     .dropdown a:hover {background-color: #ddd;}
                                                                     
                                                                     .show {display: block;}
-
+                            
                                                                     #myDropdown {
                                                                         margin-top: 2.7em;
                                                                     }
                                                                 </style>
                                                             
                                                                 <input onfocus="myFunction()" onkeydown="handleKeyDown(event)" type="search" name="q" placeholder="Search for brand, color, etc." autoComplete="off" spellcheck="false" autoCorrect="off" autoCapitalize="off" data-testid="site-search" title="Search..." aria-label="Search..." id="site-search" class="chakra-input css-xpvaq1" value=""/>
-                                                                <div id="myDropdown" class="dropdown-content">
+                                                                <div id="myDropdown1" class="dropdown-content1">
                                                                     <div class="range-slider" style="text-align: center;">
                                                                         <label for="priceRange">Price Range</label><br><br>
                                                                         <div id="priceRange"></div>
@@ -1703,6 +1704,7 @@
                                                                         <button onclick="selectButton('Sneakers')"><b><bigger>Sneakers</bigger></b></button>
                                                                         <button onclick="selectButton('Apparel')"><b><bigger>Apparel</bigger></b></button>
                                                                         <button onclick="selectButton('Accessories')"><b><bigger>Accessories</bigger></b></button>
+                                                                        <button onclick="selectButton('Contact')"><b><bigger>Contact</bigger></b></button>
                                                                         <button onclick="selectButton('Collectibles')"><b><bigger>Collectibles</bigger></b></button>
                                                                     </div>
                                                                 </div>
@@ -1710,11 +1712,11 @@
                                                                 <script>
                                                                     document.addEventListener('DOMContentLoaded', function () {
                                                                         var searchInput = document.getElementById("site-search");
-                                                                        var dropdown = document.getElementById("myDropdown");
+                                                                        var dropdown = document.getElementById("myDropdown1");
                                                             
                                                                         // Thêm sự kiện mousedown cho cả input và dropdown
                                                                         document.addEventListener('mousedown', function (event) {
-                                                                            if (event.target === searchInput || event.target.closest("#myDropdown")) {
+                                                                            if (event.target === searchInput || event.target.closest("#myDropdown1")) {
                                                                                 // Click vào input hoặc dropdown, không tắt dropdown
                                                                                 dropdown.classList.add("show");
                                                                             } else {
@@ -1731,7 +1733,7 @@
                                                             
                                                                     function selectButton(value) {
                                                                         var searchInput = document.getElementById("site-search");
-                                                                        var dropdown = document.getElementById("myDropdown");
+                                                                        var dropdown = document.getElementById("myDropdown1");
                                                             
                                                                         // Nếu giá trị hiện tại của thanh input là giống với giá trị của button được nhấn,
                                                                         // thì xóa giá trị của thanh input, ngược lại, cập nhật giá trị của thanh input
@@ -1747,26 +1749,26 @@
                                                             
                                                                     function handleKeyDown(event) {
                                                                         var searchInput = document.getElementById("site-search");
-                                                                        var dropdown = document.getElementById("myDropdown");
+                                                                        var dropdown = document.getElementById("myDropdown1");
                                                             
                                                                         // Kiểm tra nếu phím nhấn là Enter và có một lựa chọn được chọn
                                                                         if (event.key === 'Enter' && searchInput.value) {
                                                                             // Chuyển hướng đến đường link tương ứng
                                                                             switch (searchInput.value.toLowerCase()) {
                                                                                 case 'sneakers':
-                                                                                    window.location.href = '../Shopping_List/Sneaker.html';
+                                                                                    window.location.href = 'Shopping_List/Sneaker.html';
                                                                                     break;
                                                                                 case 'apparel':
-                                                                                    window.location.href = '../Shopping_List/Apparel.html';
+                                                                                    window.location.href = 'Shopping_List/Apparel.html';
                                                                                     break;
                                                                                 case 'accessories':
-                                                                                    window.location.href = '../Shopping_List/Accessories.html';
+                                                                                    window.location.href = 'Shopping_List/Accessories.html';
                                                                                     break;
                                                                                 case 'collectibles':
-                                                                                    window.location.href = '../Shopping_List/Collectibles.html';
+                                                                                    window.location.href = 'Shopping_List/Collectibles.html';
                                                                                     break;
                                                                                 default:
-                                                                                    window.location.href = '../Shopping_List/Sneaker.html';
+                                                                                    window.location.href = 'Shopping_List/Sneaker.html';
                                                                                     break;
                                                                             }
                                                                         }
