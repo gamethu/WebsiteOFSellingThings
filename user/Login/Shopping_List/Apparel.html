@@ -2671,6 +2671,519 @@
                                                             </div>
                                                         </a>
                                                     </li>
+                                                    <li class="css-1esqt8y">
+                                                        <style data-emotion="css q2y3yl">
+                                                            .css-q2y3yl {
+                                                                color: inherit;
+                                                            }
+                                                        </style>
+                                                        <a href="../purchase_history.html" class="chakra-link css-n84c8" data-testid="navbar-menu-favorites" aria-label="All Favorites">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 100 125" x="0px" y="0px">
+                                                                <path d="M77.72,77.37H32.64a8.39,8.39,0,0,1,0-16.77H77.72a1.62,1.62,0,1,1,0,3.23H32.64a5.16,5.16,0,1,0,0,10.31H77.72a1.62,1.62,0,1,1,0,3.23Z"/>
+                                                                <path d="M29.09,59.49a1.62,1.62,0,0,1-1.57-1.25L18.58,19.53a7.94,7.94,0,0,0-7.73-6.06H5.45a1.61,1.61,0,1,1,0-3.22h5.4a11.17,11.17,0,0,1,10.87,8.53l9,38.73a1.62,1.62,0,0,1-1.21,1.94A1.55,1.55,0,0,1,29.09,59.49Z"/>
+                                                                <circle cx="37.81" cy="85.3" r="5.91"/>
+                                                                <circle cx="72.02" cy="85.3" r="5.91"/>
+                                                                <path d="M86.15,14.89H27.22a7.68,7.68,0,0,0-7.48,9.41l7.75,33.58A7.67,7.67,0,0,0,35,63.83H78.41a7.69,7.69,0,0,0,7.48-5.95L93.63,24.3A7.68,7.68,0,0,0,86.15,14.89ZM56.69,53.74A13.28,13.28,0,0,1,43.42,40.47a1,1,0,0,1,2,0A11.26,11.26,0,1,0,48.22,33a1,1,0,1,1-1.5-1.32,13.26,13.26,0,1,1,10,22ZM51.14,39.15a1,1,0,0,1,1.37-.34l4.07,2.43,5.93-5.13a1,1,0,0,1,1.31,1.52l-6.48,5.6a1,1,0,0,1-.65.24,1,1,0,0,1-.52-.14l-4.68-2.81A1,1,0,0,1,51.14,39.15Z"/>
+                                                            </svg>
+                                                        </a>
+                                                    <span id="mySpan" style="position: absolute;background-color: red;width: 20px;height: 20px;display: none;justify-content: center;align-items: center;border-radius: 50%;color: #fff;top: 60%;right: -2px;">1</span>
+                                                            <!-- <script>let favoritesCount = 10;</script>
+                                                            <script>
+                                                                function addToCartFromHeart() {
+                                                                    // Logic thêm sản phẩm vào giỏ hàng ở đây
+                                                    
+                                                                    // Tăng giá trị của favoritesCount
+                                                                    // favoritesCount++;
+                                                    
+                                                                    // Cập nhật hiển thị số lượng trên span
+                                                                    let favoritesCountSpan = document.getElementById("mySpan");
+                                                                    let currentCount = parseInt(favoritesCountSpan.innerHTML, 10);
+                                                                    let newCount = currentCount + 1;
+                                                                    favoritesCountSpan.innerHTML = newCount;
+                                                    
+                                                                    // Lấy giá trị hiện tại của 'mySpan1'
+                                                                    let Span = document.getElementById("mySpan1");
+                                                                    let current = parseInt(Span.innerHTML, 10);
+                                                    
+                                                                    // Tăng giá trị của 'mySpan1' lên 1 đơn vị
+                                                                    let newcurrent = current + 1;
+                                                                    Span.innerHTML = newcurrent;
+                                                    
+                                                                    let priceSpan = document.getElementById("price1");
+                                                                    let newPrice = 100 * newcurrent;
+                                                                    priceSpan.innerHTML = "$" + newPrice;
+                                                                    // Hiển thị thông báo
+                                                                    alert("Added to cart successfully!");
+                                                                }
+                                                    
+                                                                function minus(id, priceId) {
+                                                                    // Cập nhật hiển thị số lượng trên span
+                                                                    let favoritesCountSpan = document.getElementById("mySpan");
+                                                                    let currentCount = parseInt(favoritesCountSpan.innerHTML, 10);
+                                                                    let newCount = currentCount - 1;
+                                                                    favoritesCountSpan.innerHTML = newCount;
+                                                                    
+                                                                    let Span = document.getElementById(id);
+                                                                    let priceSpan = document.getElementById(priceId);
+                                                    
+                                                                    if (!Span || !priceSpan) {
+                                                                        return;
+                                                                    }
+                                                                
+                                                                    let current = parseInt(Span.innerHTML, 10);
+                                                                    let price = parseInt(priceSpan.innerHTML.replace('$', ''), 10);
+                                                                
+                                                                    if (current > 1) {
+                                                                        let newcurrent = current - 1;
+                                                                        Span.innerHTML = newcurrent;
+                                                                    
+                                                                        let newPrice = 100 * newcurrent;
+                                                                        priceSpan.innerHTML = "$" + newPrice;
+                                                                    } else {
+                                                                        // Nếu giá trị xuống 0, ẩn class 'product1'
+                                                                        let product1Element = document.querySelector(".product1");
+                                                                        if (product1Element) {
+                                                                            product1Element.style.display = "none";
+                                                                        }
+                                                                    }
+                                                                }
+                                                    
+                                                                function incre(id, priceId) {
+                                                                    // Cập nhật hiển thị số lượng trên span
+                                                                    let favoritesCountSpan = document.getElementById("mySpan");
+                                                                    let currentCount = parseInt(favoritesCountSpan.innerHTML, 10);
+                                                                    let newCount = currentCount + 1;
+                                                                    favoritesCountSpan.innerHTML = newCount;
+                                                    
+                                                                    let Span = document.getElementById(id);
+                                                                    let priceSpan = document.getElementById(priceId);
+                                                                                                
+                                                                    if (!Span || !priceSpan) {
+                                                                        return; // Nếu không tìm thấy phần tử với id tương ứng, thoát khỏi hàm
+                                                                    }
+                                                                
+                                                                    let current = parseInt(Span.innerHTML, 10);
+                                                                    let price = parseInt(priceSpan.innerHTML.replace('$', ''), 10); // Lấy giá trị từ chuỗi và chuyển thành số
+                                                                
+                                                                    // Tăng giá trị đi 1 đơn vị
+                                                                    let newcurrent = current + 1;
+                                                                    Span.innerHTML = newcurrent;
+                                                                
+                                                                    // Tính toán giá mới khi tăng số lượng
+                                                                    let newPrice = 100 * newcurrent;
+                                                                    priceSpan.innerHTML = "$" + newPrice;
+                                                                }
+                                                    
+                                                                document.addEventListener('DOMContentLoaded', function() {
+                                                                    let listProductHTML = document.querySelector('.listProduct');
+                                                                    let listCartHTML = document.querySelector('.listCart');
+                                                                    let iconCart = document.querySelector('.icon-cart');
+                                                                    let iconCartSpan = document.querySelector('.icon-cart span');
+                                                                    let body = document.querySelector('body');
+                                                                    let closeCart = document.querySelector('.close');
+                                                                    let products = [];
+                                                                    let cart = [];
+                                                    
+                                                                    let favoritesButton = document.getElementById('favoritesButton');
+                                                                    favoritesButton.addEventListener('click', () => {
+                                                                        body.classList.toggle('showCart');
+                                                                    });
+                                                    
+                                                                    let closeCartButton = document.querySelector('.close');
+                                                                    closeCartButton.addEventListener('click', () => {
+                                                                        body.classList.remove('showCart');
+                                                                    });
+                                                    
+                                                                    iconCart.addEventListener('click', () => {
+                                                                        body.classList.toggle('showCart');
+                                                                    })
+                                                                    closeCart.addEventListener('click', () => {
+                                                                        body.classList.toggle('showCart');
+                                                                    })
+                                                    
+                                                                    const addDataToHTML = () => {
+                                                                    // remove datas default from HTML
+                                                                    
+                                                                        // add new datas
+                                                                        if(products.length > 0) // if has data
+                                                                        {
+                                                                            products.forEach(product => {
+                                                                                let newProduct = document.createElement('div');
+                                                                                newProduct.dataset.id = product.id;
+                                                                                newProduct.classList.add('item');
+                                                                                newProduct.innerHTML = 
+                                                                                `<img src="${product.image}" alt="">
+                                                                                <h2>${product.name}</h2>
+                                                                                <div class="price">$${product.price}</div>
+                                                                                <button class="addCart">Add To Cart</button>`;
+                                                                                listProductHTML.appendChild(newProduct);
+                                                                            });
+                                                                        }
+                                                                    }
+                                                                    listProductHTML.addEventListener('click', (event) => {
+                                                                        let positionClick = event.target;
+                                                                        if(positionClick.classList.contains('addCart')){
+                                                                            let id_product = positionClick.parentElement.dataset.id;
+                                                                            addToCart(id_product);
+                                                                        }
+                                                                    })
+                                                                    const addToCart = (product_id) => {
+                                                                        let positionThisProductInCart = cart.findIndex((value) => value.product_id == product_id);
+                                                                        if(cart.length <= 0){
+                                                                            cart = [{
+                                                                                product_id: product_id,
+                                                                                quantity: 1
+                                                                            }];
+                                                                        }else if(positionThisProductInCart < 0){
+                                                                            cart.push({
+                                                                                product_id: product_id,
+                                                                                quantity: 1
+                                                                            });
+                                                                        }else{
+                                                                            cart[positionThisProductInCart].quantity = cart[positionThisProductInCart].quantity + 1;
+                                                                        }
+                                                                        addCartToHTML();
+                                                                        addCartToMemory();
+                                                                    }
+                                                                    const addCartToMemory = () => {
+                                                                        localStorage.setItem('cart', JSON.stringify(cart));
+                                                                    }
+                                                                    const addCartToHTML = () => {
+                                                                        listCartHTML.innerHTML = '';
+                                                                        let totalQuantity = 0;
+                                                                        if(cart.length > 0){
+                                                                            cart.forEach(item => {
+                                                                                totalQuantity = totalQuantity +  item.quantity;
+                                                                                let newItem = document.createElement('div');
+                                                                                newItem.classList.add('item');
+                                                                                newItem.dataset.id = item.product_id;
+                                                                            
+                                                                                let positionProduct = products.findIndex((value) => value.id == item.product_id);
+                                                                                let info = products[positionProduct];
+                                                                                listCartHTML.appendChild(newItem);
+                                                                                newItem.innerHTML = `
+                                                                                <div class="image">
+                                                                                        <img src="${info.image}">
+                                                                                    </div>
+                                                                                    <div class="name">
+                                                                                    ${info.name}
+                                                                                    </div>
+                                                                                    <div class="totalPrice">$${info.price * item.quantity}</div>
+                                                                                    <div class="quantity">
+                                                                                        <span class="minus"><</span>
+                                                                                        <span>${item.quantity}</span>
+                                                                                        <span class="plus">></span>
+                                                                                    </div>
+                                                                                `;
+                                                                            })
+                                                                        }
+                                                                        iconCartSpan.innerText = totalQuantity;
+                                                                    }
+                                                    
+                                                                    listCartHTML.addEventListener('click', (event) => {
+                                                                        let positionClick = event.target;
+                                                                        if(positionClick.classList.contains('minus') || positionClick.classList.contains('plus')){
+                                                                            let product_id = positionClick.parentElement.parentElement.dataset.id;
+                                                                            let type = 'minus';
+                                                                            if(positionClick.classList.contains('plus')){
+                                                                                type = 'plus';
+                                                                            }
+                                                                            changeQuantityCart(product_id, type);
+                                                                        }
+                                                                    })
+                                                                    const changeQuantityCart = (product_id, type) => {
+                                                                        let positionItemInCart = cart.findIndex((value) => value.product_id == product_id);
+                                                                        if(positionItemInCart >= 0){
+                                                                            let info = cart[positionItemInCart];
+                                                                            switch (type) {
+                                                                                case 'plus':
+                                                                                    cart[positionItemInCart].quantity = cart[positionItemInCart].quantity + 1;
+                                                                                    break;
+                                                                            
+                                                                                default:
+                                                                                    let changeQuantity = cart[positionItemInCart].quantity - 1;
+                                                                                    if (changeQuantity > 0) {
+                                                                                        cart[positionItemInCart].quantity = changeQuantity;
+                                                                                    }else{
+                                                                                        cart.splice(positionItemInCart, 1);
+                                                                                    }
+                                                                                    break;
+                                                                            }
+                                                                        }
+                                                                        addCartToHTML();
+                                                                        addCartToMemory();
+                                                                    }
+                                                    
+                                                                    const initApp = () => {
+                                                                        // get data product
+                                                                        fetch('products.json')
+                                                                        .then(response => response.json())
+                                                                        .then(data => {
+                                                                            products = data;
+                                                                            addDataToHTML();
+                                                                        
+                                                                            // get data cart from memory
+                                                                            if(localStorage.getItem('cart')){
+                                                                                cart = JSON.parse(localStorage.getItem('cart'));
+                                                                                addCartToHTML();
+                                                                            }
+                                                                        })
+                                                                    }
+                                                                    initApp();
+                                                                });
+                                                                // Hàm thêm nội dung HTML mới vào khung Shopping Cart
+                                                                // function addCartToCartTab() {
+                                                                //     const cartTab = document.querySelector('.listCart');
+                                                                //     const newCartItem = createCartItem(); // Thay bằng hàm tạo nội dung cart item của bạn
+                                                                //     cartTab.appendChild(newCartItem);
+                                                                // }
+                                                                
+                                                                // // Hàm tạo nội dung mới của cart item, thay thế nội dung của hàm này bằng HTML bạn muốn thêm
+                                                                // function createCartItem() {
+                                                                //     const newCartItem = document.createElement('div');
+                                                                //     newCartItem.classList.add('item');
+                                                                //     newCartItem.innerHTML = '<p>This is a new cart item!</p>';
+                                                                //     return newCartItem;
+                                                                // }
+                                                            </script>
+                                                            <style>
+                                                                body{
+                                                                    margin: 0;
+                                                                    /* font-family: Poppins; */
+                                                                }
+                                                                .container{
+                                                                    width: 900px;
+                                                                    margin: auto;
+                                                                    max-width: 90vw;
+                                                                    text-align: center;
+                                                                    padding-top: 10px;
+                                                                    transition: transform .5s;
+                                                                }
+                                                                svg{
+                                                                    width: 30px;
+                                                                }
+                                                                header{
+                                                                    display: flex;
+                                                                    justify-content: space-between;
+                                                                    align-items: center;
+                                                                    padding: 20px 0;
+                                                                }
+                                                                .icon-cart{
+                                                                    position: relative;
+                                                                }
+                                                                .icon-cart span{
+                                                                    position: absolute;
+                                                                    background-color: red;
+                                                                    width: 30px;
+                                                                    height: 30px;
+                                                                    display: flex;
+                                                                    justify-content: center;
+                                                                    align-items: center;
+                                                                    border-radius: 50%;
+                                                                    color: #fff;
+                                                                    top: 50%;
+                                                                    right: -20px;
+                                                                }
+                                                                .title{
+                                                                    font-size: xx-large;
+                                                                }
+                                                                .listProduct .item img{
+                                                                    width: 90%;
+                                                                    filter: drop-shadow(0 50px 20px #0009);
+                                                                }
+                                                                .listProduct{
+                                                                    display: grid;
+                                                                    grid-template-columns: repeat(4, 1fr);
+                                                                    gap: 20px;
+                                                                }
+                                                                .listProduct .item{
+                                                                    background-color: #EEEEE6;
+                                                                    padding: 20px;
+                                                                    border-radius: 20px;
+                                                                }
+                                                                .listProduct .item h2{
+                                                                    font-weight: 500;
+                                                                    font-size: large;
+                                                                }
+                                                                .listProduct .item .price{
+                                                                    letter-spacing: 7px;
+                                                                    font-size: small;
+                                                                }
+                                                                .listProduct .item button{
+                                                                    background-color: #353432;
+                                                                    color: #eee;
+                                                                    border: none;
+                                                                    padding: 5px 10px;
+                                                                    margin-top: 10px;
+                                                                    border-radius: 20px;
+                                                                }
+                                                    
+                                                                /* cart */
+                                                                .cartTab{
+                                                                    width: 450px;
+                                                                    background-color: #353432;
+                                                                    color: #eee;
+                                                                    position: fixed;
+                                                                    top: 0;
+                                                                    right: -450px;
+                                                                    bottom: 0;
+                                                                    display: grid;
+                                                                    grid-template-rows: 70px 1fr 70px;
+                                                                    transition: .5s;
+                                                                    margin-top: 90px;
+                                                                    padding: 10px;
+                                                                }
+                                                                body.showCart .cartTab{
+                                                                    right: 0;
+                                                                }
+                                                                body.showCart .container{
+                                                                    transform: translateX(-250px);
+                                                                }
+                                                                .cartTab h1{
+                                                                    padding: 20px;
+                                                                    margin: 0;
+                                                                    font-weight: 300;
+                                                                }
+                                                                .cartTab .btn {
+                                                                    display: grid;
+                                                                    position: sticky;
+                                                                    top: 0; /* Đặt vị trí top là 0 để nó giữ ở trên cùng của .cartTab */
+                                                                    grid-template-columns: repeat(2, 1fr);
+                                                                    background-color: #353432;
+                                                                    padding: 10px;
+                                                                }
+                                                                .cartTab button{
+                                                                    background-color: #E8BC0E;
+                                                                    border: none;
+                                                                    font-family: Poppins;
+                                                                    font-weight: 500;
+                                                                    cursor: pointer;
+                                                                }
+                                                                .cartTab .close{
+                                                                    background-color: #eee;
+                                                                }
+                                                    
+                                                                .listCart {
+                                                                    overflow: auto;
+                                                                }
+                                                    
+                                                                .listCart .item img{
+                                                                    width: 30%;
+                                                                    margin-right: auto;
+                                                                    display: inline-flex;
+                                                                }
+                                                                .listCart .item{
+                                                                    display: grid;
+                                                                    grid-template-columns: 70px 150px 50px 1fr;
+                                                                    gap: 10px;
+                                                                    text-align: center;
+                                                                    align-items: center;
+                                                                }
+                                                                /* .quantity span{
+                                                                    display: inline-block;
+                                                                    width: 25px;
+                                                                    height: 25px;
+                                                                    background-color: #eee;
+                                                                    border-radius: 50%;
+                                                                    color: #555;
+                                                                    cursor: pointer;
+                                                                } */
+                                                                .minus {
+                                                                    display: inline-block;
+                                                                    width: 25px;
+                                                                    height: 25px;
+                                                                    background-color: #eee;
+                                                                    border-radius: 50%;
+                                                                    color: #555;
+                                                                    cursor: pointer;
+                                                                }
+                                                                .plus {
+                                                                    display: inline-block;
+                                                                    width: 25px;
+                                                                    height: 25px;
+                                                                    background-color: #eee;
+                                                                    border-radius: 50%;
+                                                                    color: #555;
+                                                                    cursor: pointer;
+                                                                }
+                                                                /* .listCart .quantity span:nth-child(2){
+                                                                    background-color: transparent;
+                                                                    color: #eee;
+                                                                    cursor: auto;
+                                                                }
+                                                                .listCart .item:nth-child(even){
+                                                                    background-color: #eee1;
+                                                                } */
+                                                                .listCart{
+                                                                    overflow: auto;
+                                                                }
+                                                                .listCart::-webkit-scrollbar{
+                                                                    width: 0;
+                                                                }
+                                                                @media only screen and (max-width: 992px) {
+                                                                    .listProduct{
+                                                                        grid-template-columns: repeat(3, 1fr);
+                                                                    }
+                                                                }
+                                                    
+                                                    
+                                                                /* mobile */
+                                                                @media only screen and (max-width: 768px) {
+                                                                    .listProduct{
+                                                                        grid-template-columns: repeat(2, 1fr);
+                                                                    }
+                                                                }
+                                                                
+                                                                .image {
+                                                                    width: 33%;
+                                                                    float: left;
+                                                                    display: inline;
+                                                                }
+                                                                
+                                                                /* .quantity {
+                                                                    display: inline-block;
+                                                                } */
+                                                            </style>
+                                                            <div class="cartTab">
+                                                                <h1 style="text-align: center;">Shopping Cart</h1>
+                                                                <div class="listCart">
+                                                                    <div class="product1" style="margin-bottom: 20px;height: 100px;">
+                                                                        <img class="image" src="../../Assets/In4/Air-Jordan-1-Retro-Low-Golf-Travis-Scott-Neutral-Olive-Product.avif">
+                                                                        <div style="margin-left: 10px;width: 33%;min-height: none;float: left;">
+                                                                            <span>Air Jordan 1 Retro Low Golf Travis Scott <br>Neutral Olive</span><Br>
+                                                                            <span id="price1">$100</span>
+                                                                            <div class="quantity">
+                                                                                <span class="minus" onclick="minus('mySpan1','price1')">&nbsp;&nbsp;&lt;</span>
+                                                                                <span id="mySpan1">1</span>
+                                                                                <span class="plus" onclick="incre('mySpan1','price1')">&nbsp;&nbsp;&nbsp;></span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!-- <div class="product2" style="margin-bottom: 20px;height: 100px;">
+                                                                        <img class="image" src="../../Assets/In4/Air-Jordan-1-Retro-Low-Golf-Travis-Scott-Neutral-Olive-Product.avif">
+                                                                        <div style="margin-left: 10px;width: 33%;min-height: none;float: left;">
+                                                                            <span>Air Jordan 1 Retro Low Golf Travis Scott <br>Neutral Olive</span><Br>
+                                                                            <span>$100</span>
+                                                                            <div class="quantity">
+                                                                                <span class="minus">&nbsp;&nbsp;&lt;</span>
+                                                                                <span>&nbsp;&nbsp;&nbsp;1</span>
+                                                                                <span class="plus">&nbsp;&nbsp;></span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="btn">
+                                                                    <button class="close" style="color: grey;">CLOSE</button>
+                                                                    <button class="checkOut" onclick="toPurchase()">Check Out</button>
+                                                                    <script>
+                                                                        function toPurchase() {
+                                                                            location = 'Product/PlaceOrder/Recently/Air-Jordan-1-Retro-Low-Golf-Travis-Scott-Neutral-Olive-Product.html';
+                                                                        }
+                                                                    </script>
+                                                                </div>
+                                                            </div> -->
+                                                        </a>
+                                                    </li>
                                                     <li data-testid="navbar-menu-message-center">
                                                         <style data-emotion="css 1baulvz">
                                                             .css-1baulvz {
