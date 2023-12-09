@@ -2,8 +2,11 @@ body{
 	margin:0px;
 	padding: 0px;
 	background-color:#1b203d;
-	overflow: hidden;
+	overflow: scroll;
 	font-family: system-ui;
+}
+::-webkit-scrollbar {
+  display: none;
 }
 .clearfix{
 	clear: both;
@@ -22,6 +25,7 @@ body{
   height: 100%;
   width: 300px;
   position: fixed;
+  position: -webkit-sticky;
   z-index: 1;
   top: 0;
   left: 0;
@@ -43,7 +47,7 @@ body{
   background-color:#1b203d;
 }
 .sidenav{
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 25px;
   font-size: 36px;

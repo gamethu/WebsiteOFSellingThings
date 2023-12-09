@@ -524,8 +524,9 @@ input:checked + .slider:before {
 }
 
 .overlayTable {
-    margin: 50px auto;
-    width: auto;
+    margin: 300px auto;
+    width: 500px;
+    height: auto;
     background-color: #23282c;
 }
 
@@ -533,6 +534,13 @@ input:checked + .slider:before {
     color: wheat;
 }
 .overlayTable input {
+    padding: 4px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #e7e7e7;
+}
+.overlayTable select {
+    width: 180px;
     padding: 4px 10px;
     border: none;
     border-radius: 5px;

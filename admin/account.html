@@ -159,9 +159,13 @@
 							width: 150px;
 							height: 45px;
 						}
+
+						.round {
+							border-radius: 25px;
+						}
 					</style>
 					<div class="tooltip">
-						<button id="btn1" class="locked" onclick="toggleAccountLock('btn1','span1')"><span id="span1">Locked</span></button>
+						<button id="btn1" class="unlocked" onclick="toggleAccountLock('btn1','span1')"><span id="span1">Unlock</span></button>
 					</div>
 				  </td>
 	  			  <td>
@@ -183,7 +187,7 @@
 	  			  <td>qne8xvTBXuLG</td>
 	  			  <td>
 					<div class="tooltip">
-						<button id="btn2" class="unlocked" onclick="toggleAccountLock('btn2','span2')"><span id="span2">Unlock</span></button>
+						<button id="btn2" class="locked" onclick="toggleAccountLock('btn2','span2')"><span id="span2">Locked</span></button>
 					</div>
 				  </td>
 	  			  <td>
@@ -281,7 +285,7 @@
 		</div>
 	</div>
 	<div class="table-footer">
-		<button onclick="document.getElementById('khungThemSanPham').style.transform = 'scale(1)';">
+		<button class="round" onclick="document.getElementById('khungThemSanPham').style.transform = 'scale(1)';">
 			<i class="fa fa-plus-square"></i>
 			Add User
 		</button>
@@ -393,20 +397,28 @@
 			const Btn = document.getElementById(button);
 			const lockStatus = document.getElementById(span);
 	
-			setTimeout(function () {
+			// setTimeout(function () {
 				if (lockStatus.innerHTML.includes("Locked")) {
-					alert("UnLock Account successfully");
-					lockStatus.innerHTML = "UnLock"; //cập nhật lại chữ sau khi thông báo
-					Btn.classList.replace('locked','unlocked') //cập nhật lại chữ sau khi thông báo
+					var isConfirmed = confirm("Do you really want to unlock this user?");
+					if (isConfirmed) {
+						// alert("Remove this user successfully");
+						alert("UnLock Account successfully");
+						lockStatus.innerHTML = "UnLock"; //cập nhật lại chữ sau khi thông báo
+						Btn.classList.replace('locked','unlocked') //cập nhật lại chữ sau khi thông báo
+					}
 				} else {
-					alert("Lock Account successfully");
-					lockStatus.innerHTML = "Locked"; //cập nhật lại chữ sau khi thông báo
-					Btn.classList.replace('unlocked','locked') //cập nhật lại chữ sau khi thông báo
+					var isConfirmed = confirm("Do you really want to lock this user?");
+					if (isConfirmed) {
+						// alert("Remove this user successfully");
+						alert("Lock Account successfully");
+						lockStatus.innerHTML = "Locked"; //cập nhật lại chữ sau khi thông báo
+						Btn.classList.replace('unlocked','locked') //cập nhật lại chữ sau khi thông báo
+					}
 				}
 	
 				// Chuyển đổi trạng thái khóa tài khoản
 				// accountLocked = !accountLocked;
-			}, 500); // sau 0.5s thì thông báo
+			// }, 500); // sau 0.5s thì thông báo
 		}
 	
 		function addUser() {

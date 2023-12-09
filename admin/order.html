@@ -66,7 +66,7 @@
 	  <!-- <a href="#"class="icon-a"><i class="fa fa-users icons"></i>   Customers</a> -->
 	  <a href="account.html"class="icon-a"><i class="fa fa-user icons"></i>   Accounts</a>
 	  <a href="product.html"class="icon-a"><i class="fa fa-list icons"></i>   Product</a>
-	  <a class="icon-a" style="background-color: lightgreen;"><i class="fa fa-shopping-bag icons"></i>   Orders</a>
+	  <a href="" class="icon-a" style="background-color: lightgreen;"><i class="fa fa-shopping-bag icons"></i>   Orders</a>
 	  <a href="business_static.html"class="icon-a"><i class="fa fa-tasks icons"></i>   Business Static</a>
 	  <!-- <a href="#"class="icon-a"><i class="fa fa-list-alt icons"></i>   Tasks</a> -->
 
@@ -125,49 +125,96 @@
 				<br/>
 			<table>
 	  			<tr>
-	  			  <th>Index</th>
+	  			  <th>Order Placed</th>
+	  			  <th>Customer</th>
 	  			  <th>Product</th>
 	  			  <th>Address</th>
 	  			  <th>Unit Prices</th>
 	  			  <th>Quantity</th>
 	  			  <th>Values</th>
-	  			  <td>Status</td>
+	  			  <th>Status</th>
 	  			</tr>
 	  			<tr>
-	  			  <td>1</td>
+	  			  <td>3/20/2023</td>
+				  <td>Cecelia Dennis</td>
 	  			  <td>Jordan 1 Retro Low OG SP Travis Scott Olive (Women's)</td>
 	  			  <td>273 An Duong Vuong</td>
 	  			  <td>$395</td>
 	  			  <td>100</td>
-	  			  <td>$39500</td>
-	  			  <td style="background-color: yellowgreen;" class="circle">On Progress</td>
+	  			  <th>$39500</th>
+	  			  <td >
+					<style>
+						.locked {
+							border-radius: 25px;
+							padding: 20px;
+							padding-top: 10px;
+							text-align: center;
+							background-color: tomato;
+						}
+						
+						.unlocked {
+							border-radius: 25px;
+							padding: 20px;
+							padding-top: 10px;
+							text-align: center;
+							background-color: lightgreen;
+						}
+
+						button {
+							width: 150px;
+							height: 45px;
+						}
+
+						.round {
+							border-radius: 25px;
+						}
+					</style>
+					<div class="tooltip">
+						<button id="btn1" class="locked" onclick="toggleAccountLock('btn1','span1')"><span id="span1">On Process</span></button>
+					</div>
+				</td>
 	  			</tr>
 	  			<tr>
-	  			  <td>2</td>
+	  			  <td>7/31/2023</td>
+					<td>Lewis Cox</td>
 	  			  <td>Fear Of God Essentials Hoodie Black</td>
 	  			  <td>273 Au Co</td>
 	  			  <td>$89</td>
 	  			  <td>100</td>
-	  			  <td>$8900</td>
-	  			  <td style="background-color: green;" class="circle">Progress</td>
+	  			  <th>$8900</th>
+	  			  <td>
+					<div class="tooltip">
+						<button id="btn2" class="unlocked" onclick="toggleAccountLock('btn2','span2')"><span id="span2">Accepted</span></button>
+					</div>
+				</td>
 	  			</tr>
 	  			<tr>
-	  			  <td>3</td>
+	  			  <td>9/23/2023</td>
+				  <td>Lura Jackson</td>
 	  			  <td>Casio Analog MTP1302D-2A2V</td>
 	  			  <td>273 Dien Bien Phu</td>
 	  			  <td>$51</td>
 	  			  <td>100</td>
-	  			  <td>$5100</td>
-	  			  <td style="background-color: yellowgreen;" class="circle">On Progress</td>
+	  			  <th>$5100</th>
+	  			  <td >
+					<div class="tooltip">
+						<button id="btn3" class="unlocked" onclick="toggleAccountLock('btn3','span3')"><span id="span3">Accepted</span></button>
+					</div>
+				</td>
 	  			</tr>
 	  			<tr>
-	  			  <td>4</td>
+	  			  <td>7/12/2023</td>
+				  <td>Lucas Hunter</td>
 	  			  <td>Mattel UNO Show ‘Em No Mercy Card Game</td>
 	  			  <td>273 To Ngoc Van</td>
 	  			  <td>$26</td>
 	  			  <td>100</td>
-	  			  <td>$2600</td>
-	  			  <td style="background-color: green;" class="circle">Progress</td>
+	  			  <th>$2600</th>
+	  			  <td>
+					<div class="tooltip">
+						<button id="btn4" class="unlocked" onclick="toggleAccountLock('btn4','span4')"><span id="span4">Accepted</span></button>
+					</div>
+				</td>
 	  			</tr>
 				<!-- <tr>
 					<th colspan="6" style="text-align: center;">ProfitsTotal:</th>
@@ -242,3 +289,82 @@
 
 
 	</html>
+	<script>
+		// let accountLocked = true;
+	
+		function toggleAccountLock(button,span) {
+			const Btn = document.getElementById(button);
+			const lockStatus = document.getElementById(span);
+	
+			// setTimeout(function () {
+				if (lockStatus.innerHTML.includes("On Process")) {
+					var isConfirmed = confirm("Do you really sure that you had completed this order?");
+					if (isConfirmed) {
+						// alert("Remove this user successfully");
+						lockStatus.innerHTML = "Accepted"; //cập nhật lại chữ sau khi thông báo
+						Btn.classList.replace('locked','unlocked') //cập nhật lại chữ sau khi thông báo
+						alert("Order accepted successfully");
+					}
+				} else {
+					var isConfirmed = confirm("Do you really sure that you hadn't completed this order?");
+					if (isConfirmed) {
+						// alert("Remove this user successfully");
+						lockStatus.innerHTML = "On Process"; //cập nhật lại chữ sau khi thông báo
+						Btn.classList.replace('unlocked','locked') //cập nhật lại chữ sau khi thông báo
+						alert("Oder in process");
+					}
+				}
+	
+				// Chuyển đổi trạng thái khóa tài khoản
+				// accountLocked = !accountLocked;
+			// }, 500); // sau 0.5s thì thông báo
+		}
+	
+		function addUser() {
+			// Lấy giá trị từ các trường nhập
+			var maspValue = document.getElementById('maspThem').value;
+			var tenValue = document.getElementById('tenThem').value;
+			var emailValue = document.getElementById('emailThem').value;
+			var matkhauValue = document.getElementById('matkhauThem').value;
+	
+			// Kiểm tra xem tất cả các trường bắt buộc có được điền đầy đủ hay không
+			if (maspValue && tenValue && emailValue) {
+				document.getElementById('errorMessage').style.display = 'none'; // Ẩn thông báo lỗi nếu thành công
+				document.getElementById('successMessage').style.display = 'block';// Hiển thị thông báo thành công
+	
+			} else {
+				// Hiển thị thông báo lỗi nếu không điền đủ thông tin
+				document.getElementById('errorMessage').style.display = 'block';
+	
+				// Ẩn thông báo thành công nếu có
+				document.getElementById('successMessage').style.display = 'none';
+			}
+		}
+		function exitUser() {
+			// Lấy giá trị từ các trường nhập
+			var maspValue = document.getElementById('maspSua').value;
+			var tenValue = document.getElementById('tenSua').value;
+			var emailValue = document.getElementById('emailSua').value;
+			var matkhauValue = document.getElementById('matkhauSua').value;
+	
+			// Kiểm tra xem tất cả các trường bắt buộc có được điền đầy đủ hay không
+			if (maspValue && tenValue && emailValue) {
+				document.getElementById('errorMessageExit').style.display = 'none'; // Ẩn thông báo lỗi nếu thành công
+				document.getElementById('successMessageExit').style.display = 'block';// Hiển thị thông báo thành công
+	
+			} else {
+				// Hiển thị thông báo lỗi nếu không điền đủ thông tin
+				document.getElementById('errorMessageExit').style.display = 'block';
+	
+				// Ẩn thông báo thành công nếu có
+				document.getElementById('successMessageExit').style.display = 'none';
+			}
+		}
+	
+		function confirmDelete() {
+			var isConfirmed = confirm("Do you really want to remove this user?");
+			if (isConfirmed) {
+				alert("Remove this user successfully");
+			}
+		}
+	</script>
