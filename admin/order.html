@@ -131,6 +131,7 @@
 	  			  <th>Order Placed</th>
 	  			  <th>Customer</th>
 	  			  <th>Product</th>
+	  			  <th>Size</th>
 	  			  <th>Address</th>
 	  			  <th>Unit Prices</th>
 	  			  <th>Quantity</th>
@@ -138,9 +139,10 @@
 	  			  <th>Status</th>
 	  			</tr>
 	  			<tr>
-	  			  <td>3/20/2023</td>
-				  <td>Cecelia Dennis</td>
+	  			  <td>20/10/2023</td>
+				  <td>Đại Nguyễn</td>
 	  			  <td><a style="text-decoration: none;color:white;" target="_blank" href="../user/notLogin/Product/In4/Shoes/Air-Jordan-1-Retro-Low-OG-SP-Travis-Scott-Olive-W-Product.html">Jordan 1 Retro Low OG SP Travis Scott Olive (Women's)</a></td>
+	  			  <td>25cm</td>
 	  			  <td>273 An Duong Vuong</td>
 	  			  <td>$395</td>
 	  			  <td>100</td>
@@ -178,15 +180,16 @@
 						}
 					</style>
 					<div class="tooltip">
-						<button id="btn1" class="locked" onclick="toggleAccountLock('btn1','span1')"><span id="span1">On Process</span></button>
+						<button id="btn1" class="unlocked" onclick="toggleAccountLock('btn1','span1')"><span id="span1">Accepted</span></button>
 					</div>
 				</td>
 	  			</tr>
 	  			<tr>
-	  			  <td>7/31/2023</td>
-					<td>Lewis Cox</td>
+	  			  <td>20/11/2023</td>
+					<td>Đại Nguyễn</td>
 	  			  <td><a style="text-decoration: none;color:white;" target="_blank" href="../user/notLogin/Product/In4/Apparel/Fear-of-God-Essentials-Hoodie-Black.html">Fear Of God Essentials Hoodie Black</a></td>
-	  			  <td>273 Au Co</td>
+					<td>25cm</td> 
+				  <td>273 Au Co</td>
 	  			  <td>$89</td>
 	  			  <td>100</td>
 	  			  <th>$8900</th>
@@ -197,24 +200,26 @@
 				</td>
 	  			</tr>
 	  			<tr>
-	  			  <td>9/23/2023</td>
-				  <td>Lura Jackson</td>
+	  			  <td>21/11/2023</td>
+				  <td>Đại Nguyễn</td>
 	  			  <td><a style="text-decoration: none;color:white;" target="_blank" href="../user/notLogin/Product/In4/Accessories/Casio-Analog-MTP1302D-2A2V-Tiffany-Blue.html">Casio Analog MTP1302D-2A2V</a></td>
-	  			  <td>273 Dien Bien Phu</td>
+					<td>25cm</td> 
+				  <td>273 Dien Bien Phu</td>
 	  			  <td>$51</td>
 	  			  <td>100</td>
 	  			  <th>$5100</th>
 	  			  <td >
 					<div class="tooltip">
-						<button id="btn3" class="unlocked" onclick="toggleAccountLock('btn3','span3')"><span id="span3">Accepted</span></button>
+						<button id="btn3" class="locked" onclick="toggleAccountLock('btn3','span3')"><span id="span3">On Process</span></button>
 					</div>
 				</td>
 	  			</tr>
 	  			<tr>
-	  			  <td>7/12/2023</td>
-				  <td>Lucas Hunter</td>
+	  			  <td>20/12/2023</td>
+				  <td>Đại Nguyễn</td>
 	  			  <td><a style="text-decoration: none;color:white;" target="_blank" href="../user/notLogin/Product/In4/Collectibles/Mattel-UNO-Show-em-No-Mercy-Card-Game.html">Mattel UNO Show ‘Em No Mercy Card Game</a></td>
-	  			  <td>273 To Ngoc Van</td>
+					<td>25cm</td> 
+				  <td>273 To Ngoc Van</td>
 	  			  <td>$26</td>
 	  			  <td>100</td>
 	  			  <th>$2600</th>
@@ -319,7 +324,7 @@
 						// alert("Remove this user successfully");
 						lockStatus.innerHTML = "On Process"; //cập nhật lại chữ sau khi thông báo
 						Btn.classList.replace('unlocked','locked') //cập nhật lại chữ sau khi thông báo
-						alert("Oder in process");
+						alert("Order in process");
 					}
 				}
 	
